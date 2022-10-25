@@ -5,7 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import { NavbarComponent } from './navbar/navbar/navbar.component';
+import { NavbarComponent } from './navbar/navbar.component';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { MatGridListModule } from '@angular/material/grid-list';
