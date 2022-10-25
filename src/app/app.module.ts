@@ -7,6 +7,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from "./material/material.module";
+import { LayoutModule } from './modules/layout/layout.module';
+import { FeedbackModule } from './modules/feedback/feedback.module';
+import { PatientModule } from './modules/patient/patient.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import { MaterialModule } from "./material/material.module";
     HttpClientModule,
     FontAwesomeModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    LayoutModule,
+    FeedbackModule,
+    PatientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
