@@ -3,11 +3,11 @@
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
-    <mat-toolbar>Menu</mat-toolbar>
+    <mat-toolbar class="libre-bold">Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item href="#">Link 1</a>
-      <a mat-list-item href="#">Link 2</a>
-      <a mat-list-item href="#">Link 3</a>
+      <a mat-list-item href="#" class="libre">Link 1</a>
+      <a mat-list-item href="#" class="libre">Link 2</a>
+      <a mat-list-item href="#" class="libre">Link 3</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -20,11 +20,16 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>Hospital</span>
+      <span class="libre-bold">Hope Hospital</span>
     </mat-toolbar>
     
     <!-- CONTENT IS RENDERED HERE -->
     <router-outlet></router-outlet>
 
+    <footer class="flex-shrink-0 pb-4 text-white-50 mt-auto">
+      <div class="container text-center">
+        <small class="libre-italic">PSW 2022-2023 &copy;</small>
+      </div>
+    </footer>
   </mat-sidenav-content>
 </mat-sidenav-container>
