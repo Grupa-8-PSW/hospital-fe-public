@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {MatFormFieldModule} from '@angular/material/form-field';
 import { Feedback } from '../model/feedback.model';
 import { FeedbackService } from '../services/feedback.service';
 
@@ -14,10 +13,7 @@ export class CreateComponent implements OnInit {
 
   constructor(private feedbackService: FeedbackService) {
     this.feedback = {
-       patientFullName: "string",
-       text: "string",
-       rating: 0,
-       creationDate: new Date(),
+       text: "",
        isAnonymous: false,
        isPublic: false
     };
@@ -29,10 +25,7 @@ export class CreateComponent implements OnInit {
     this.feedbackService.addFeedback(this.feedback).subscribe(() => {
       alert("Feedback succesfully added!");
       this.feedback = {
-        patientFullName: "string",
-        text: "string",
-        rating: 0,
-        creationDate: new Date(),
+        text: "",
         isAnonymous: false,
         isPublic: false
      }

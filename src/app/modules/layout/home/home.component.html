@@ -25,7 +25,6 @@
         <mat-card-header>
           <mat-card-title class="libre-bold">
             Feedback
-            <a class="navbar-brand col-md-1 me-0" [routerLink]="['/createFeedback']" style="float:right;">Add feedback</a>
           </mat-card-title>
         </mat-card-header>
         <hr><br>
@@ -33,6 +32,9 @@
           <div class="libre">Feedback list here</div>
         </mat-card-content>
       </mat-card>
+        <a [routerLink]="['/createFeedback']">
+          <button mat-raised-button color="primary">Add Feedback</button>
+        </a>
     </mat-grid-tile>
   </mat-grid-list>
 </div>

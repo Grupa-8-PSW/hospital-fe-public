@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MaterialModule } from "src/app/material/material.module";
 import { CreateComponent } from './create/create.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -11,7 +12,9 @@ import { CreateComponent } from './create/create.component';
   imports: [
     CommonModule,
     MaterialModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    MatCheckboxModule
   ]
 })
 export class FeedbackModule { }
