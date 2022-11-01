@@ -11,9 +11,12 @@ import { HomeComponent } from './home/home.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
+import { FeedbackModule } from '../feedback/feedback.module';
 
 @NgModule({
-  declarations: [NavbarComponent, HomeComponent],
+  declarations: 
+  [NavbarComponent, 
+    HomeComponent],
   imports: [
     CommonModule,
     MatToolbarModule,
@@ -24,7 +27,8 @@ import { MatMenuModule } from '@angular/material/menu';
     AppRoutingModule,
     MatGridListModule,
     MatCardModule,
-    MatMenuModule
+    MatMenuModule,
+    FeedbackModule
   ],
   exports: [NavbarComponent]
 })

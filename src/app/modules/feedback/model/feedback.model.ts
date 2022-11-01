@@ -1,20 +1,21 @@
 
 export class Feedback implements FeedbackInterface{
 
+    public patientFullName: string; 
     public text: string;
-    public isAnonymous: boolean;
-    public isPublic: boolean;
+    public creationDate: Date;
 
     constructor(feedbackCfg: FeedbackInterface)
     {
         this.text = feedbackCfg.text;
-        this.isAnonymous = feedbackCfg.isAnonymous;
-        this.isPublic = feedbackCfg.isPublic;
+        this.patientFullName=feedbackCfg.patientFullName;
+        this.creationDate = feedbackCfg.creationDate;
+
     }
 }
 
 interface FeedbackInterface{
     text: string;
-    isAnonymous: boolean;
-    isPublic: boolean;
+    patientFullName: string;
+    creationDate: Date;
 }

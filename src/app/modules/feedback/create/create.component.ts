@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Feedback } from '../model/feedback.model';
+import { NewFeedback } from '../model/new-feedback.model';
 import { FeedbackService } from '../services/feedback.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { FeedbackService } from '../services/feedback.service';
 })
 export class CreateComponent implements OnInit {
 
-  feedback: Feedback;
+  feedback: NewFeedback;
 
   constructor(private feedbackService: FeedbackService) {
     this.feedback = {

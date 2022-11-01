@@ -1,5 +1,5 @@
-<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport
+<mat-sidenav-container class="sidenav-container secondary">
+  <mat-sidenav #drawer class="sidenav tertiary" fixedInViewport
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
@@ -11,7 +11,7 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
+    <mat-toolbar class="primary">
       <button
         type="button"
         aria-label="Toggle sidenav"
@@ -28,7 +28,7 @@
 
     <footer class="flex-shrink-0 pb-4 text-white-50 mt-auto">
       <div class="container text-center">
-        <small class="libre-italic">PSW 2022-2023 &copy;</small>
+        <small class="libre-italic" style="color:black;">PSW 2022-2023 &copy;</small>
       </div>
     </footer>
   </mat-sidenav-content>
