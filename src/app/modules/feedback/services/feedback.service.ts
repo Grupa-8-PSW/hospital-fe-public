@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { NewFeedback } from '../model/new-feedback.model'
 import { catchError, Observable, of } from 'rxjs';
 import { Feedback } from '../model/feedback.model';
 
@@ -7,14 +8,21 @@ import { Feedback } from '../model/feedback.model';
   providedIn: 'root'
 })
 export class FeedbackService {
+
   private publicFeedbackUrl = 'http://localhost:5174/api/Feedback/public';
+  baseURL: string = "http://localhost:5174/api/Feedback";
 
   httpOptions = {
     headers: { 'Content-Type': 'application/json' }
   };
-  
+
   constructor(private http: HttpClient) { }
 
+  addFeedback(feedback: NewFeedback): Observable<NewFeedback> {
+    return this.http
+      .post<NewFeedback>(this.baseURL, feedback, this.httpOptions)
+      .pipe(catchError(this.handleError('addFeedback', feedback)));
+  }
   getPublicFeedbacks(): Observable<Feedback[]> {
     return this.http
       .get<Feedback[]>(this.publicFeedbackUrl, this.httpOptions)
