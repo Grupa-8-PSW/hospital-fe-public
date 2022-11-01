@@ -1,0 +1,10 @@
+@import url('../../../../assets/fonts/fonts.css');
+@import url('../../../../assets/colors/palette.css');
+
+mat-card {
+    width: 75%;
+}
+
+.align-right {
+    margin-left: auto;
+}

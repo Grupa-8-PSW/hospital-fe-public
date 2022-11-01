@@ -1,7 +1,7 @@
 <div class="grid-container">
-  <mat-grid-list rows="2" cols="1" rowHeight="400px">
+  <mat-grid-list rows="4" cols="1" rowHeight="400px">
     <mat-grid-tile>
-      <mat-card class="dashboard-card">
+      <mat-card class="dashboard-card primary">
         <br>
         <mat-card-header>
           <mat-card-title class="libre-bold">
@@ -19,8 +19,8 @@
       </mat-card>
     </mat-grid-tile>
 
-    <mat-grid-tile>
-      <mat-card class="dashboard-card">
+    <mat-grid-tile rowspan="3">
+      <mat-card class="dashboard-card primary">
         <br>
         <mat-card-header>
           <mat-card-title class="libre-bold">
@@ -29,7 +29,15 @@
         </mat-card-header>
         <hr><br>
         <mat-card-content class="dashboard-card-content">
-          <div class="libre">Feedback list here</div>
+          <div *ngFor="let feedback of feedbacks; let i = index" class="mb-4">
+            <div *ngIf="i%2==0; else rightAlign">
+              <app-feedback-details [feedback]="feedback" [number]="i" [alignment]="alignLeft"></app-feedback-details>
+            </div>
+            
+            <ng-template #rightAlign>
+              <app-feedback-details [feedback]="feedback" [number]="i" [alignment]="alignRight"></app-feedback-details>
+            </ng-template>
+          </div>
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>
