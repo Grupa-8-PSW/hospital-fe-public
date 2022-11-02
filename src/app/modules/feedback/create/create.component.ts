@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NewFeedback } from '../model/new-feedback.model';
 import { FeedbackService } from '../services/feedback.service';
 
@@ -11,7 +12,7 @@ export class CreateComponent implements OnInit {
 
   feedback: NewFeedback;
 
-  constructor(private feedbackService: FeedbackService) {
+  constructor(private feedbackService: FeedbackService, private router: Router) {
     this.feedback = {
        text: "",
        isAnonymous: false,
@@ -21,6 +22,7 @@ export class CreateComponent implements OnInit {
   
   ngOnInit(): void {
   }
+
   createFeedback(){
     this.feedbackService.addFeedback(this.feedback).subscribe(() => {
       alert("Feedback succesfully added!");
@@ -30,5 +32,9 @@ export class CreateComponent implements OnInit {
         isPublic: false
      }
     });
+  }
+
+  goToHome(){
+    this.router.navigate(['/home']);
   }
 }

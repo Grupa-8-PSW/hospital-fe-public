@@ -18,7 +18,7 @@
       </div>
     </mat-card-content>
     <mat-card-actions class="row">
-      <button mat-raised-button class="primary libre" type="submit" [disabled]="feedback.text === ''" style="width:20%;float: right;margin-right: 10%;" >Save</button>
+      <button mat-raised-button class="primary libre" type="submit" [disabled]="feedback.text === ''" style="width:20%;float: right;margin-right: 10%;" (click)="goToHome()">Save</button>
     </mat-card-actions>
   </form>
 </mat-card>
