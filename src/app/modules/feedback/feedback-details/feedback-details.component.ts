@@ -23,6 +23,9 @@ export class FeedbackDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (this.feedback.patientFullName == null){
+      this.feedback.patientFullName = 'Anonymous';
+    }
   }
 
 }
