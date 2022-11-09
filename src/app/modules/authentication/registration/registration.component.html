@@ -1,0 +1,7 @@
+<mat-card class="secondary">
+    <div *ngFor="let allergen of allergens; let i = index" class="mb-4">
+        <div class="row">
+            <mat-checkbox class="example-margin libre" name="isAnonymous" style="margin-bottom:20px">{{allergen.name}}</mat-checkbox>
+          </div>
+      </div>
+</mat-card>

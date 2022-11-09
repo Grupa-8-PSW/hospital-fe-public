@@ -10,10 +10,12 @@ import { MaterialModule } from "./material/material.module";
 import { LayoutModule } from './modules/layout/layout.module';
 import { FeedbackModule } from './modules/feedback/feedback.module';
 import { PatientModule } from './modules/patient/patient.module';
+import { AuthenticationModule } from './modules/authentication/authentication.module';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,7 +27,8 @@ import { PatientModule } from './modules/patient/patient.module';
     MaterialModule,
     LayoutModule,
     FeedbackModule,
-    PatientModule
+    PatientModule,
+    AuthenticationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
