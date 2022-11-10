@@ -10,10 +10,12 @@ import { MaterialModule } from "./material/material.module";
 import { LayoutModule } from './modules/layout/layout.module';
 import { FeedbackModule } from './modules/feedback/feedback.module';
 import { PatientModule } from './modules/patient/patient.module';
+import { AccountDetailsComponent } from './modules/account-details/account-details.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AccountDetailsComponent
   ],
   imports: [
     BrowserModule,
