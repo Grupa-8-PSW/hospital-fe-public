@@ -1,7 +1,84 @@
-<mat-card class="secondary">
-    <div *ngFor="let allergen of allergens; let i = index" class="mb-4">
-        <div class="row">
-            <mat-checkbox class="example-margin libre" name="isAnonymous" style="margin-bottom:20px">{{allergen.name}}</mat-checkbox>
-          </div>
-      </div>
-</mat-card>
+<div class="row g-0 mt-5">
+    <div class="col-md-8 text-center m-auto w-25">
+      <h1 class="text-center libre-bold mb-3">Registration</h1>
+        <form (ngSubmit)="register()">
+             <div class="form-outline mb-4">
+               <input type="text" id="firstname" class="form-control form-control-md libre text-center" name="firstname" [(ngModel)]="registeredUser.firstName" required/>
+               <label class="form-label libre" for="firstname">Name</label>
+             </div>
+             <div class="form-outline mb-4">
+                <input type="text" id="lastname" class="form-control form-control-md libre text-center" name="lastname" [(ngModel)]="registeredUser.lastName" required/>
+                <label class="form-label libre" for="lastname">Surname</label>
+             </div>
+             <div class="form-outline mb-4">
+                <input type="text" id="email" class="form-control form-control-md libre text-center" name="email" [(ngModel)]="registeredUser.email" required/>
+                <label class="form-label libre" for="email">Email</label>
+             </div>
+             <!-- 
+             <div class="form-outline mb-4">
+                <input type="text" id="country" class="form-control form-control-md libre text-center" name="country"/>
+                <label class="form-label libre" for="country">Country</label>
+             </div>
+             <div class="form-outline mb-4">
+                <input type="text" id="city" class="form-control form-control-md libre text-center" name="city"/>
+                <label class="form-label libre" for="city">City</label>
+             </div>
+             <div class="form-outline mb-4">
+                <input type="text" id="street" class="form-control form-control-md libre text-center" name="street"/>
+                <label class="form-label libre" for="street">Street</label>
+             </div>
+             <div class="form-outline mb-4">
+                <input type="text" id="number" class="form-control form-control-md libre text-center" name="number"/>
+                <label class="form-label libre" for="country">Street number</label>
+             </div>
+             -->
+             <div class="form-outline mb-4">
+                <input type="text" id="pin" class="form-control form-control-md libre text-center" name="pin" [(ngModel)]="registeredUser.pin" required/>
+                <label class="form-label libre" for="pin">PIN</label>
+             </div>
+             <div class = "form-outline mb-4">
+               <div *ngFor="let allergen of allergens; let i = index" class="mb-4">
+                  <div class="row">
+                      <mat-checkbox class="example-margin libre" name="isAnonymous" style="margin-bottom:20px" (change)="onChange(i)">{{allergen.name.name}}</mat-checkbox>
+                    </div>
+                </div>
+             </div>
+             <div class="form-outline mb-4">
+               <input  id="username" class="form-control form-control-md libre text-center" name="username" [(ngModel)]="registerRequest.username" required/>
+               <label class="form-label libre" for="password1">Username</label>
+             </div>
+             <div class="form-outline mb-4">
+               <input type="password" id="password1" class="form-control form-control-md libre text-center" name="password1" required/>
+               <label class="form-label libre" for="password1">Password</label>
+             </div>
+             <div class="form-outline mb-4">
+                <input type="password" id="password2" class="form-control form-control-md libre text-center" name="password2" [(ngModel)]="registerRequest.password" required/>
+                <label class="form-label libre" for="password2">Confirm Password</label>
+             </div>
+             <div class="form-outline mb-4 p-3 border rounded">
+               <mat-radio-group name="bloodType" id="gender" required>
+                  <mat-radio-button value="0">O+</mat-radio-button>&nbsp;&nbsp;&nbsp;
+                  <mat-radio-button value="1">O-</mat-radio-button><br>
+                  <mat-radio-button value="2">A+</mat-radio-button>&nbsp;&nbsp;&nbsp;
+                  <mat-radio-button value="3">A-</mat-radio-button><br>
+                  <mat-radio-button value="4">B+</mat-radio-button>&nbsp;&nbsp;&nbsp;
+                  <mat-radio-button value="5">B-</mat-radio-button><br>
+                  <mat-radio-button value="6">AB+</mat-radio-button>
+                  <mat-radio-button value="7">AB-</mat-radio-button>
+               </mat-radio-group><br><br>
+               <label class="form-label libre" for="gender">Blood type</label>
+             </div> 
+             <div class="form-outline mb-4 p-3 border rounded">
+               <mat-radio-group name="gender" id="gender" required>
+                  <mat-radio-button value="MALE">Male</mat-radio-button>&nbsp;&nbsp;
+                  <mat-radio-button value="FEMALE">Female</mat-radio-button>
+               </mat-radio-group><br><br>
+               <label class="form-label libre" for="gender">Gender</label>
+             </div>            
+             <button class="btn btn-success btn-lg btn-block libre my-3" type="submit">Register</button>
+       </form>
+    </div>
+</div>
+
+
+

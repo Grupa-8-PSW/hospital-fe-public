@@ -5,6 +5,7 @@ import { MaterialModule } from "src/app/material/material.module";
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
+import { MatRadioModule } from '@angular/material/radio';
 
 
 
@@ -18,7 +19,8 @@ import { LoginComponent } from './login/login.component';
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatRadioModule
   ]
 })
 export class AuthenticationModule { }

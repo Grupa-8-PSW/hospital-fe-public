@@ -1,27 +1,27 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, of } from 'rxjs';
-import { Allergen } from '../registration/model/allergen.model';
+import { RegisterRequest } from '../model/register-request.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AllergenService {
+export class AuthService {
 
-  baseURL: string = "http://localhost:5174/api/Allergen";
+  baseURL: string = "http://localhost:5174/api/auth/register";
 
   httpOptions = {
     headers: { 'Content-Type': 'application/json' }
   };
 
   constructor(private http: HttpClient) { }
-  
-  getAllergens(): Observable<Allergen[]> {
+
+  register(registerRequest: RegisterRequest): Observable<RegisterRequest> {
     return this.http
-      .get<Allergen[]>(this.baseURL, this.httpOptions)
-      .pipe(catchError(this.handleError<Allergen[]>('getAllergens', [])));
+      .post<RegisterRequest>(this.baseURL, registerRequest, this.httpOptions)
+      .pipe(catchError(this.handleError('register', registerRequest)));
   }
-  
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       // TODO: send the error to remote logging infrastructure
