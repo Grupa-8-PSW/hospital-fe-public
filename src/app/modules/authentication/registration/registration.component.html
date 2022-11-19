@@ -3,37 +3,35 @@
       <h1 class="text-center libre-bold mb-3">Registration</h1>
         <form (ngSubmit)="register()">
              <div class="form-outline mb-4">
-               <input type="text" id="firstname" class="form-control form-control-md libre text-center" name="firstname" [(ngModel)]="registeredUser.firstName" required/>
+               <input type="text" id="firstname" class="form-control form-control-md libre text-center" name="firstname" [(ngModel)]="registerUser.firstName" required/>
                <label class="form-label libre" for="firstname">Name</label>
              </div>
              <div class="form-outline mb-4">
-                <input type="text" id="lastname" class="form-control form-control-md libre text-center" name="lastname" [(ngModel)]="registeredUser.lastName" required/>
+                <input type="text" id="lastname" class="form-control form-control-md libre text-center" name="lastname" [(ngModel)]="registerUser.lastName" required/>
                 <label class="form-label libre" for="lastname">Surname</label>
              </div>
              <div class="form-outline mb-4">
-                <input type="text" id="email" class="form-control form-control-md libre text-center" name="email" [(ngModel)]="registeredUser.email" required/>
+                <input type="text" id="email" class="form-control form-control-md libre text-center" name="email" [(ngModel)]="registerUser.email" required/>
                 <label class="form-label libre" for="email">Email</label>
-             </div>
-             <!-- 
+             </div> 
              <div class="form-outline mb-4">
-                <input type="text" id="country" class="form-control form-control-md libre text-center" name="country"/>
+                <input type="text" id="country" class="form-control form-control-md libre text-center" name="country" [(ngModel)]="registerUser.address.country" required/>
                 <label class="form-label libre" for="country">Country</label>
              </div>
              <div class="form-outline mb-4">
-                <input type="text" id="city" class="form-control form-control-md libre text-center" name="city"/>
+                <input type="text" id="city" class="form-control form-control-md libre text-center" name="city" [(ngModel)]="registerUser.address.city"/>
                 <label class="form-label libre" for="city">City</label>
              </div>
              <div class="form-outline mb-4">
-                <input type="text" id="street" class="form-control form-control-md libre text-center" name="street"/>
+                <input type="text" id="street" class="form-control form-control-md libre text-center" name="street" [(ngModel)]="registerUser.address.street"/>
                 <label class="form-label libre" for="street">Street</label>
              </div>
              <div class="form-outline mb-4">
-                <input type="text" id="number" class="form-control form-control-md libre text-center" name="number"/>
+                <input type="text" id="number" class="form-control form-control-md libre text-center" name="number" [(ngModel)]="registerUser.address.number"/>
                 <label class="form-label libre" for="country">Street number</label>
              </div>
-             -->
              <div class="form-outline mb-4">
-                <input type="text" id="pin" class="form-control form-control-md libre text-center" name="pin" [(ngModel)]="registeredUser.pin" required/>
+                <input type="text" id="pin" class="form-control form-control-md libre text-center" name="pin" [(ngModel)]="registerUser.pin" required/>
                 <label class="form-label libre" for="pin">PIN</label>
              </div>
              <div class = "form-outline mb-4">

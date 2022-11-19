@@ -2,14 +2,14 @@ import { RegisteredUser } from "./registered-user.model";
 
 export class RegisterRequest implements NewRegisterRequest {
 
-    registeredUser: RegisteredUser;
+    registerUser: RegisteredUser;
     email: string;
     username: string;
     password: string;
 
     constructor(nrui: NewRegisterRequest)
     {
-        this.registeredUser = nrui.registeredUser;
+        this.registerUser = nrui.registerUser;
         this.email = nrui.email;
         this.username = nrui.username;
         this.password = nrui.password;
@@ -17,7 +17,7 @@ export class RegisterRequest implements NewRegisterRequest {
 }
 interface NewRegisterRequest{
 
-    registeredUser: RegisteredUser;
+    registerUser: RegisteredUser;
     email: string;
     username: string;
     password: string;

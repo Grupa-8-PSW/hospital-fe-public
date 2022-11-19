@@ -8,7 +8,7 @@ import { RegisterRequest } from '../model/register-request.model';
 })
 export class AuthService {
 
-  baseURL: string = "http://localhost:5174/api/auth/register";
+  baseURL: string = "http://localhost:5174/api/Auth/register";
 
   httpOptions = {
     headers: { 'Content-Type': 'application/json' }
@@ -26,7 +26,7 @@ export class AuthService {
     return (error: any): Observable<T> => {
       // TODO: send the error to remote logging infrastructure
       console.error(error); // log to console instead
-
+      alert("Email or username already registered");
       // TODO: better job of transforming error for user consumption
       console.log(`${operation} failed: ${error.message}`);
 

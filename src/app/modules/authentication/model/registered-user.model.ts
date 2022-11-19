@@ -1,5 +1,6 @@
 import { BloodType } from "../../shared/enum/blood-type";
 import { Gender } from "../../shared/enum/gender";
+import { Address } from "../../shared/model/address.model";
 import { Allergen } from "../../shared/model/allergen.model";
 
 export class RegisteredUser implements NewRegisteredUserInterface{
@@ -10,6 +11,7 @@ export class RegisteredUser implements NewRegisteredUserInterface{
     allergens: Allergen[];
     bloodType: BloodType;
     gender: Gender;
+    address: Address;
 
     constructor(nrui: NewRegisteredUserInterface)
     {
@@ -20,6 +22,7 @@ export class RegisteredUser implements NewRegisteredUserInterface{
         this.allergens = nrui.allergens;
         this.bloodType = nrui.bloodType;
         this.gender = nrui.gender;
+        this.address = nrui.address;
 
     }
 }
@@ -32,4 +35,5 @@ interface NewRegisteredUserInterface{
     allergens: Allergen[];
     bloodType: BloodType;
     gender: Gender;
+    address: Address;
 }
