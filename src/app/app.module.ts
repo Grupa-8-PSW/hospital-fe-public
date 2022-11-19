@@ -4,13 +4,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from "./material/material.module";
 import { LayoutModule } from './modules/layout/layout.module';
 import { FeedbackModule } from './modules/feedback/feedback.module';
 import { PatientModule } from './modules/patient/patient.module';
 import { AuthenticationModule } from './modules/authentication/authentication.module';
+import { JwtInterceptor } from "./modules/authentication/helpers/jwt.interceptor";
+import { JwtModule } from "@auth0/angular-jwt";
 
 
 @NgModule({
@@ -28,9 +30,16 @@ import { AuthenticationModule } from './modules/authentication/authentication.mo
     LayoutModule,
     FeedbackModule,
     PatientModule,
-    AuthenticationModule
+    AuthenticationModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => localStorage.getItem('token')
+      }
+    })
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

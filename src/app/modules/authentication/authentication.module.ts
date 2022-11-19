@@ -6,8 +6,13 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
 import { MatRadioModule } from '@angular/material/radio';
+import { Routes, RouterModule  } from '@angular/router';
+import { JwtModule } from '@auth0/angular-jwt';
 
-
+const routes: Routes = [
+  {path: 'auth/login', component: LoginComponent},
+  {path: 'auth/register', component: RegistrationComponent}
+];
 
 @NgModule({
   declarations: [
@@ -20,7 +25,9 @@ import { MatRadioModule } from '@angular/material/radio';
     FormsModule,
     ReactiveFormsModule,
     MatCheckboxModule,
-    MatRadioModule
+    MatRadioModule,
+    JwtModule,
+    RouterModule.forChild(routes)
   ]
 })
 export class AuthenticationModule { }
