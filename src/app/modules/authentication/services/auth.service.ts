@@ -33,7 +33,7 @@ export class AuthService {
   }
   
   login(loginRequest: Credentials): Observable<boolean> {
-    return this.http.post<any>(this.baseURL + 'api/auth/login', loginRequest, this.httpOptions).pipe(
+    return this.http.post<any>(this.baseURL + 'api/auth/public/login', loginRequest, this.httpOptions).pipe(
       map((res) => {
         localStorage.setItem('token', res.jwt);
         this.userClaims = this.jwtHelper.decodeToken();

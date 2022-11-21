@@ -19,8 +19,12 @@ export class RegistrationComponent implements OnInit {
   allergens:any
   registerUser: RegisteredUser
   registerRequest: RegisterRequest
+  blood: number;
+  gender: number;
 
   constructor(private allergenService: AllergenService, private authService: AuthService) { 
+    this.blood = 0
+    this.gender = 0
     this.allergens = [];
     this.registerUser = {
       firstName: "",
@@ -55,6 +59,14 @@ export class RegistrationComponent implements OnInit {
       if(this.allergens[i].checked == true)
           this.registerUser.allergens.push(this.allergens[i].name);
     }
+
+    if(!this.validForm()){
+      alert("Form is not valid")
+      console.log(this.registerUser.bloodType)
+      console.log(this.registerUser.gender)
+      return;
+    }
+      
     this.registerRequest.email = this.registerUser.email;
 
     this.authService.register(this.registerRequest).subscribe(() => {
@@ -73,7 +85,29 @@ export class RegistrationComponent implements OnInit {
     this.registerRequest.password = ''
     this.registerRequest.email = ''
   });}
-  onChange(index: number){
+
+  onChangeAllergens(index: number){
     this.allergens[index].checked = !this.allergens[index].checked
+  }
+  onChangeBloodType(index: number): void {
+    if(index == 0) this.registerUser.bloodType = BloodType.ZERO_POSITIVE;
+    else if(index == 1) this.registerUser.bloodType = BloodType.ZERO_NEGATIVE;
+    else if(index == 2) this.registerUser.bloodType = BloodType.A_POSITIVE;
+    else if(index == 3) this.registerUser.bloodType = BloodType.A_NEGATIVE;
+    else if(index == 4) this.registerUser.bloodType = BloodType.B_POSITIVE;
+    else if(index == 5) this.registerUser.bloodType = BloodType.B_NEGATIVE;
+    else if(index == 6) this.registerUser.bloodType = BloodType.AB_POSITIVE;
+    else if(index == 7) this.registerUser.bloodType = BloodType.AB_NEGATIVE;
+    
+  }
+  onChangeGender(index: number): void {
+    if(index == 0) this.registerUser.gender = Gender.MALE;
+    else if(index == 1) this.registerUser.gender = Gender.FEMALE;
+  }
+
+  validForm(): boolean{
+    if(this.registerUser.firstName == "" || this.registerUser.lastName == ""
+    || !this.registerUser.email.includes("@") || this.registerUser.pin.length != 13) return false;
+    return true;
   }
 }
