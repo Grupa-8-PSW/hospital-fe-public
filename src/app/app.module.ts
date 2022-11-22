@@ -10,14 +10,22 @@ import { MaterialModule } from "./material/material.module";
 import { LayoutModule } from './modules/layout/layout.module';
 import { FeedbackModule } from './modules/feedback/feedback.module';
 import { PatientModule } from './modules/patient/patient.module';
+<<<<<<< HEAD
 import { AuthenticationModule } from './modules/authentication/authentication.module';
 import { JwtInterceptor } from "./modules/authentication/helpers/jwt.interceptor";
 import { JwtModule } from "@auth0/angular-jwt";
 
+=======
+import { AccountDetailsComponent } from './modules/account-details/account-details.component';
+>>>>>>> 69d83f3131b06b18eb6aa7f10916762a749caf86
 
 @NgModule({
   declarations: [
     AppComponent,
+<<<<<<< HEAD
+=======
+    AccountDetailsComponent
+>>>>>>> 69d83f3131b06b18eb6aa7f10916762a749caf86
   ],
   imports: [
     BrowserModule,

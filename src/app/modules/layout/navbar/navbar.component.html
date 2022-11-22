@@ -23,8 +23,11 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span class="libre-bold" [routerLink]="['/home']" role="button">Hope Hospital</span>
+      <a [routerLink]="['/account-details']" style="margin-left: auto;margin-top: -10px">
+        <button mat-raised-button class="secondary libre">Account</button>
+      </a>
     </mat-toolbar>
-    
+
     <!-- CONTENT IS RENDERED HERE -->
     <router-outlet></router-outlet>
 

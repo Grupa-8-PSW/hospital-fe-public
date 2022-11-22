@@ -13,7 +13,7 @@
           <h1 class="libre-italic">Hope Hospital is a 206-bed regional medical center serving Novi Sad County. It is a major academic affiliate of Novi Sad School of Medicine and a member of WHO (World Health Association).
 
             Since opening in 1967, Hope Hospital has evolved into a progressive medical center and teaching institution with an internal medicine residency.
-            
+
             We represent all medical specialties and offer a wide range of medical, surgical, diagnostic and wellness programs. High-quality care, coupled with Hope Hospital’s convenient location, are reasons many patients choose to be treated here.</h1>
         </mat-card-content>
       </mat-card>
@@ -24,7 +24,7 @@
         <br>
         <mat-card-header>
           <mat-card-title class="libre-bold">
-            Feedback
+            Feedbacke
           </mat-card-title>
           <a [routerLink]="['/createFeedback']" *ngIf="userRole == 'Patient'" style="margin-left: auto;margin-top: -10px">
             <button mat-raised-button class="secondary libre">Add Feedback</button>
@@ -36,7 +36,7 @@
             <div *ngIf="i%2==0; else rightAlign">
               <app-feedback-details [feedback]="feedback" [number]="i" [alignment]="alignLeft"></app-feedback-details>
             </div>
-            
+
             <ng-template #rightAlign>
               <app-feedback-details [feedback]="feedback" [number]="i" [alignment]="alignRight"></app-feedback-details>
             </ng-template>
