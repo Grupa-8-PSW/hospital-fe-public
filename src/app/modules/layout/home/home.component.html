@@ -26,7 +26,7 @@
           <mat-card-title class="libre-bold">
             Feedback
           </mat-card-title>
-          <a [routerLink]="['/createFeedback']" style="margin-left: auto;margin-top: -10px">
+          <a [routerLink]="['/createFeedback']" *ngIf="userRole == 'Patient'" style="margin-left: auto;margin-top: -10px">
             <button mat-raised-button class="secondary libre">Add Feedback</button>
           </a>
         </mat-card-header>
