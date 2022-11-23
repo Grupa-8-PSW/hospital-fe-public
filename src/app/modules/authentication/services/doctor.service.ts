@@ -7,13 +7,11 @@ import { Doctor } from '../model/doctor.model';
   providedIn: 'root'
 })
 export class DoctorService {
-  doctorUrl = `http://localhost:5174/api/Doctor/`;
-
   constructor(
     private http: HttpClient
   ) { }
 
  getAvailableDoctors() : Observable<Doctor[]>{
-   return this.http.get<Doctor[]>(this.doctorUrl);
+   return this.http.get<Doctor[]>("http://localhost:5174/api/Doctor/availableGeneralPracticioners");
  }
 }
