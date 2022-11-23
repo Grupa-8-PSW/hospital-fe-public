@@ -54,9 +54,9 @@
                 <label class="form-label libre" for="password2">Confirm Password</label>
              </div>
              <div class="form-outline mb-4">
-              <select class="form-select" aria-label="Default select example">
+              <select (change)="onChangeSelectedDoctorId($event)" class="form-select" aria-label="Default select example">
                 <ng-template ngFor let-item [ngForOf]="doctors" let-i="index">
-                    <option>{{item.value.firstName}} {{item.value.lastName}}</option>
+                    <option value="{{item.value.id}}">{{item.value.firstName}} {{item.value.lastName}}</option>
                 </ng-template>
               </select>
               <label class="form-label libre" for="password2">Choose doctor</label>

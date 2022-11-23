@@ -38,7 +38,7 @@ export class RegistrationComponent implements OnInit {
       bloodType: BloodType.ZERO_POSITIVE,
       gender: Gender.MALE,
       address: new Address(),
-      selectedDoctorId:0
+      selectedDoctorId:400
     }
     this.registerRequest = {
       registerUser: this.registerUser,
@@ -48,6 +48,7 @@ export class RegistrationComponent implements OnInit {
     }
   }
   ngOnInit(): void {
+    this.registerUser.selectedDoctorId=400;
     this.getAllergens();
     this.getAvailableDoctors();
   }
@@ -97,8 +98,12 @@ export class RegistrationComponent implements OnInit {
       }
     this.registerRequest.password = ''
     this.registerRequest.email = ''
-  });}
-
+  });
+  console.log(this.registerUser);
+}
+ onChangeSelectedDoctorId (event: any) {
+  this.registerUser.selectedDoctorId = event.target.value;
+}
   onChangeAllergens(index: number){
     this.allergens[index].checked = !this.allergens[index].checked
   }
