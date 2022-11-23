@@ -62,8 +62,6 @@ export class RegistrationComponent implements OnInit {
 
     if(!this.validForm()){
       alert("Form is not valid")
-      console.log(this.registerUser.bloodType)
-      console.log(this.registerUser.gender)
       return;
     }
       

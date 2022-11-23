@@ -29,6 +29,8 @@ export class HomeComponent {
       this.isLogged = val;
       if(this.isLogged)
         this.userRole = this.authService.getUserRole();
+      else
+        this.userRole = '';
     });
     this.getPublicFeedbacks();
   }
