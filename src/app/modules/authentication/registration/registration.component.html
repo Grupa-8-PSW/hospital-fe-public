@@ -13,7 +13,7 @@
              <div class="form-outline mb-4">
                 <input type="text" id="email" class="form-control form-control-md libre text-center" name="email" [(ngModel)]="registerUser.email" required/>
                 <label class="form-label libre" for="email">Email</label>
-             </div> 
+             </div>
              <div class="form-outline mb-4">
                 <input type="text" id="country" class="form-control form-control-md libre text-center" name="country" [(ngModel)]="registerUser.address.country" required/>
                 <label class="form-label libre" for="country">Country</label>
@@ -53,6 +53,14 @@
                 <input type="password" id="password2" class="form-control form-control-md libre text-center" name="password2" [(ngModel)]="registerRequest.password" required/>
                 <label class="form-label libre" for="password2">Confirm Password</label>
              </div>
+             <div class="form-outline mb-4">
+              <select class="form-select" aria-label="Default select example">
+                <ng-template ngFor let-item [ngForOf]="doctors" let-i="index">
+                    <option>{{item.value.firstName}} {{item.value.lastName}}</option>
+                </ng-template>
+              </select>
+              <label class="form-label libre" for="password2">Choose doctor</label>
+             </div>
              <div class="form-outline mb-4 p-3 border rounded">
                <mat-radio-group name="bloodType" id="gender" required>
                   <mat-radio-button value="0" (change) = "onChangeBloodType(0)">O+</mat-radio-button>&nbsp;&nbsp;&nbsp;
@@ -65,14 +73,14 @@
                   <mat-radio-button value="7" (change) = "onChangeBloodType(7)">AB-</mat-radio-button>
                </mat-radio-group><br><br>
                <label class="form-label libre" for="gender">Blood type</label>
-             </div> 
+             </div>
              <div class="form-outline mb-4 p-3 border rounded">
                <mat-radio-group name="gender" id="gender" required>
                   <mat-radio-button value="MALE" (change) = "onChangeGender(0)">Male</mat-radio-button>&nbsp;&nbsp;
                   <mat-radio-button value="FEMALE" (change) = "onChangeGender(1)">Female</mat-radio-button>
                </mat-radio-group><br><br>
                <label class="form-label libre" for="gender">Gender</label>
-             </div>            
+             </div>
              <button class="btn btn-success btn-lg btn-block libre my-3" type="submit">Register</button>
        </form>
     </div>

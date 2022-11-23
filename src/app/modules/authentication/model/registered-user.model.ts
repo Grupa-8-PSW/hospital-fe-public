@@ -12,6 +12,7 @@ export class RegisteredUser implements NewRegisteredUserInterface{
     bloodType: BloodType;
     gender: Gender;
     address: Address;
+    selectedDoctorId:number;
 
     constructor(nrui: NewRegisteredUserInterface)
     {
@@ -23,6 +24,7 @@ export class RegisteredUser implements NewRegisteredUserInterface{
         this.bloodType = nrui.bloodType;
         this.gender = nrui.gender;
         this.address = nrui.address;
+        this.selectedDoctorId=nrui.selectedDoctorId;
 
     }
 }
@@ -36,4 +38,5 @@ interface NewRegisteredUserInterface{
     bloodType: BloodType;
     gender: Gender;
     address: Address;
+    selectedDoctorId:number;
 }
