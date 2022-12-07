@@ -1,17 +1,15 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { NewFeedback } from '../model/new-feedback.model'
 import { catchError, Observable, of } from 'rxjs';
-import { Feedback } from '../model/feedback.model';
 import { environment } from 'src/environments/environment';
+import { Appointment } from '../model/appointment.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class FeedbackService {
+export class AppointmentService {
 
-  publicFeedbackUrl: string = `${environment.apiUrL}/Feedback/public`;
-  baseURL: string = `${environment.apiUrL}/Feedback/`;
+  examinationUrl = `${environment.apiUrL}/Appointment`;
 
   httpOptions = {
     headers: { 'Content-Type': 'application/json' }
@@ -19,15 +17,18 @@ export class FeedbackService {
 
   constructor(private http: HttpClient) { }
 
-  addFeedback(feedback: NewFeedback): Observable<NewFeedback> {
+  getAppointmentsForPatient() : Observable<Appointment[]> {
     return this.http
-      .post<NewFeedback>(this.baseURL, feedback, this.httpOptions)
-      .pipe(catchError(this.handleError('addFeedback', feedback)));
+      .get<Appointment[]>(this.examinationUrl + '/patient', this.httpOptions)
+      .pipe(catchError(this.handleError<Appointment[]>('getAppointmentsForPatient', [])))
   }
-  getPublicFeedbacks(): Observable<Feedback[]> {
+
+  cancelAppointment(id: number) : Observable<boolean> {
+    const url = `${this.examinationUrl}/${id}`;
+
     return this.http
-      .get<Feedback[]>(this.publicFeedbackUrl, this.httpOptions)
-      .pipe(catchError(this.handleError<Feedback[]>('getPublicFeedback', [])));
+      .delete<boolean>(url, this.httpOptions)
+      .pipe(catchError(this.handleError<boolean>('cancelAppointment')));
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
@@ -42,4 +43,5 @@ export class FeedbackService {
       return of(result as T);
     };
   }
+  
 }

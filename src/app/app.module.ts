@@ -13,6 +13,7 @@ import { PatientModule } from './modules/patient/patient.module';
 import { AuthenticationModule } from './modules/authentication/authentication.module';
 import { JwtInterceptor } from "./modules/authentication/helpers/jwt.interceptor";
 import { JwtModule } from "@auth0/angular-jwt";
+import { AppointmentModule } from './modules/appointment/appointment.module';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { JwtModule } from "@auth0/angular-jwt";
     FeedbackModule,
     PatientModule,
     AuthenticationModule,
+    AppointmentModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: () => localStorage.getItem('token')

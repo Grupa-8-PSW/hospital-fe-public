@@ -12,6 +12,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { FeedbackModule } from '../feedback/feedback.module';
+import { AppointmentModule } from '../appointment/appointment.module';
 
 @NgModule({
   declarations: 
@@ -28,7 +29,8 @@ import { FeedbackModule } from '../feedback/feedback.module';
     MatGridListModule,
     MatCardModule,
     MatMenuModule,
-    FeedbackModule
+    FeedbackModule,
+    AppointmentModule
   ],
   exports: [NavbarComponent]
 })

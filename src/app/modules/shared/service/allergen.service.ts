@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, of } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Allergen } from '../model/allergen.model';
 
 
@@ -9,7 +10,7 @@ import { Allergen } from '../model/allergen.model';
 })
 export class AllergenService {
 
-  baseURL: string = "http://localhost:5174/api/Allergen";
+  baseURL: string = `${environment.apiUrL}/Allergen`;
 
   httpOptions = {
     headers: { 'Content-Type': 'application/json' }
