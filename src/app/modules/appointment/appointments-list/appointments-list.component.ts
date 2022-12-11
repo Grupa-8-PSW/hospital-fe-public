@@ -10,10 +10,16 @@ import { AppointmentService } from '../services/appointment.service';
 export class AppointmentsListComponent implements OnInit {
 
   appointments: Appointment[];
+  pastAppointments: Appointment[];
+  upcomingAppointments: Appointment[];
+  cancelledAppointments: Appointment[];
   appointmentId: number;
 
   constructor(private appointmentService: AppointmentService) { 
     this.appointments = [];
+    this.pastAppointments = [];
+    this.upcomingAppointments = [];
+    this.cancelledAppointments = [];
     this.appointmentId = 0;
   }
 
@@ -24,14 +30,31 @@ export class AppointmentsListComponent implements OnInit {
   getAppointmentsForPatient(){
     this.appointmentService.getAppointmentsForPatient().subscribe((res: Appointment[]) => {
       this.appointments = res;
+      this.systematizeAppointments(this.appointments);
     });
   }
 
+  systematizeAppointments(appointments: Appointment[]){
+    appointments.forEach( (app: Appointment) => {
+      if(app.status == 1){
+        this.cancelledAppointments.push(app);
+      } else {
+        if(new Date(app.startTime) < new Date()){
+          this.pastAppointments.push(app);
+        } else {
+          this.upcomingAppointments.push(app);
+        }
+      }
+   });
+  }
+
+  
   cancelAppointment(index: number){
-    this.appointmentId = this.appointments[index].id;
+    this.appointmentId = this.upcomingAppointments[index].id;
     this.appointmentService.cancelAppointment(this.appointmentId).subscribe((res: boolean) => {
       if(res){
         alert('Appointment succesfully cancelled.');
+        window.location.reload();
       } else {
         alert('Cannot cancel appointment as it is scheduled in the next 24 hours.');
       }

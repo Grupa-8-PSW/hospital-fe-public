@@ -1,3 +1,5 @@
+import { AppointmentStatus } from "../../shared/enum/appointment-status.model";
+
 export class Appointment implements AppointmentInterface{
 
     public id: number;
@@ -6,6 +8,7 @@ export class Appointment implements AppointmentInterface{
     public roomId: number;
     public floorId: number;
     public roomName: string;
+    public status: AppointmentStatus;
 
     constructor(appointmentCfg: AppointmentInterface)
     {
@@ -15,6 +18,7 @@ export class Appointment implements AppointmentInterface{
         this.roomId = appointmentCfg.roomId;
         this.floorId = appointmentCfg.floorId;
         this.roomName = appointmentCfg.roomName;
+        this.status = appointmentCfg.status;
     }
 }
 
@@ -25,4 +29,5 @@ interface AppointmentInterface{
     roomId: number;
     floorId: number;
     roomName: string;
+    status: AppointmentStatus;
 }
