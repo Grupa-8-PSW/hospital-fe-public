@@ -3,9 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './modules/layout/home/home.component';
 import { CreateComponent } from './modules/feedback/create/create.component';
 import { RegistrationComponent } from './modules/authentication/registration/registration.component';
+import { TendersComponent } from './modules/layout/tenders/tenders.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
+  { path: 'tenders', component: TendersComponent },
+
+  
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

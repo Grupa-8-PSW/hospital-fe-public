@@ -13,11 +13,13 @@ import { PatientModule } from './modules/patient/patient.module';
 import { AuthenticationModule } from './modules/authentication/authentication.module';
 import { JwtInterceptor } from "./modules/authentication/helpers/jwt.interceptor";
 import { JwtModule } from "@auth0/angular-jwt";
+import { TendersComponent } from './modules/layout/tenders/tenders.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    TendersComponent,
   ],
   imports: [
     BrowserModule,

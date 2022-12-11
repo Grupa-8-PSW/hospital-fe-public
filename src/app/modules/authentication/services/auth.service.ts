@@ -52,6 +52,11 @@ export class AuthService {
     return this.userClaims.role;
   }
 
+  getUserName(): any {
+    return this.userClaims.Username;
+  }
+
+
   isLogged(): boolean {
     if (!this.jwtHelper.tokenGetter())
       return false;
