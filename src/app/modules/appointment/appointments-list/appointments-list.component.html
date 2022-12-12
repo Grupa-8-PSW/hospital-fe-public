@@ -9,7 +9,7 @@
           </mat-card-header>
           <hr><br>
           <mat-card-content class="dashboard-card-content">
-            <table class="table table-striped libre">
+            <table class="table table-striped libre" id="upcomingAppointmentsTable">
                 <thead>
                   <tr>
                     <th scope="col">#</th>
@@ -30,7 +30,7 @@
                     <td>{{app.floorId}}</td>
                     <td>{{app.roomName}}</td>
                     <td>
-                      <button class="btn btn-danger btn-sm btn-block" (click)="cancelAppointment(i)">Cancel</button>
+                      <button class="btn btn-danger btn-sm btn-block" (click)="cancelAppointment(i)" id="{{i}}">Cancel</button>
                     </td>
                   </tr>
                 </tbody>
@@ -47,7 +47,7 @@
           </mat-card-header>
           <hr><br>
           <mat-card-content class="dashboard-card-content">
-            <table class="table table-striped libre">
+            <table class="table table-striped libre" id="pastAppointmentsTable">
                 <thead>
                   <tr>
                     <th scope="col">#</th>
@@ -81,7 +81,7 @@
           </mat-card-header>
           <hr><br>
           <mat-card-content class="dashboard-card-content">
-            <table class="table table-striped libre">
+            <table class="table table-striped libre" id="cancelledAppointmentsTable">
                 <thead>
                   <tr>
                     <th scope="col">#</th>

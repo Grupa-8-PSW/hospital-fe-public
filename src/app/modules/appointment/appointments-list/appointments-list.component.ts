@@ -47,13 +47,12 @@ export class AppointmentsListComponent implements OnInit {
       }
    });
   }
-
   
   cancelAppointment(index: number){
     this.appointmentId = this.upcomingAppointments[index].id;
     this.appointmentService.cancelAppointment(this.appointmentId).subscribe((res: boolean) => {
       if(res){
-        alert('Appointment succesfully cancelled.');
+        alert('Appointment successfully cancelled.');
         window.location.reload();
       } else {
         alert('Cannot cancel appointment as it is scheduled in the next 24 hours.');
