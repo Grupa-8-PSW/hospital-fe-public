@@ -12,6 +12,7 @@ import { RoleGuard } from '../authentication/helpers/role.guard';
 const routes: Routes = [
 { path: 'createFeedback' ,component: CreateComponent, canActivate: [AuthGuard, RoleGuard], data: { roles: ['Patient'] }},
 ]
+
 @NgModule({
   declarations: [
     FeedbackDetailsComponent,
