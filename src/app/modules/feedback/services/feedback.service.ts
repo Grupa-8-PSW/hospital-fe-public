@@ -23,6 +23,7 @@ export class FeedbackService {
       .post<NewFeedback>(this.baseURL, feedback, this.httpOptions)
       .pipe(catchError(this.handleError('addFeedback', feedback)));
   }
+  
   getPublicFeedbacks(): Observable<Feedback[]> {
     return this.http
       .get<Feedback[]>(this.publicFeedbackUrl, this.httpOptions)
