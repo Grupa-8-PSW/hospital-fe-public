@@ -1,4 +1,5 @@
 export enum AppointmentStatus {
-    REGULAR,
-    CANCELLED
+    UPCOMING,
+    FINISHED,
+    CANCELED
 }

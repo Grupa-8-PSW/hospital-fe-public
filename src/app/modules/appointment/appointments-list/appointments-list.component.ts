@@ -36,14 +36,12 @@ export class AppointmentsListComponent implements OnInit {
 
   systematizeAppointments(appointments: Appointment[]){
     appointments.forEach( (app: Appointment) => {
-      if(app.status == 1){
+      if(app.status == 0){
+        this.upcomingAppointments.push(app);
+      } else if(app.status == 1) {
+        this.pastAppointments.push(app);
+      } else if(app.status == 2) {
         this.cancelledAppointments.push(app);
-      } else {
-        if(new Date(app.startTime) < new Date()){
-          this.pastAppointments.push(app);
-        } else {
-          this.upcomingAppointments.push(app);
-        }
       }
    });
   }
