@@ -15,21 +15,24 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 const routes: Routes = [
   { path: 'appointment/recommendation-system' ,component: RecommendationSystemComponent},
-  { path: 'appointments', component: AppointmentsListComponent, canActivate: [AuthGuard, RoleGuard], data: { roles: ['Patient'] }
-];
+  { path: 'appointments', component: AppointmentsListComponent, canActivate: [AuthGuard, RoleGuard], data: { roles: ['Patient'] }}
+]
 
 @NgModule({
   declarations: [
-    AppointmentsListComponent
+    AppointmentsListComponent,
+    RecommendationSystemComponent
   ],
   imports: [
     CommonModule,
     MaterialModule,
     MatIconModule,
     MatListModule,
+    MatFormFieldModule,
     MatGridListModule,
     MatCardModule,
     MatMenuModule,
