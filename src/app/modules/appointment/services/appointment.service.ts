@@ -54,4 +54,10 @@ export class AppointmentService {
     return this.http.get<Array<AvailableAppointments>>(url, this.httpOptions);
   }
 
+  getAppointmentsForDoctorDate(date: Date, doctorId: number): Observable<AvailableAppointments>{
+    const dateIso = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`;
+    const url = `${environment.apiUrL}/Appointment/available/doctor-date?date=${dateIso}&doctorId=${doctorId}`;    
+    return this.http.get<AvailableAppointments>(url, this.httpOptions);
+  }
+
 }

@@ -6,6 +6,12 @@
             <mat-card-title class="libre-bold">
               Upcoming appointments
             </mat-card-title>
+            <a [routerLink]="['/appointments/create-with-recommendation']" style="margin-left: auto;margin-top: -10px">
+              <button mat-raised-button class="secondary libre">Create appointment with recommendation</button>
+            </a>
+            <a [routerLink]="['/appointments/create-step-by-step']" style="margin-left: auto;margin-top: -10px">
+              <button mat-raised-button class="secondary libre">Create appointment step-by-step</button>
+            </a>
           </mat-card-header>
           <hr><br>
           <mat-card-content class="dashboard-card-content">

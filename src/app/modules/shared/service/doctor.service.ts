@@ -20,4 +20,9 @@ export class DoctorService {
     return this.http.get<Array<Doctor>>(url, this.httpOptions);
   }
 
+  getDoctorsForSpecialization(spec: number): Observable<Doctor[]> {
+    const url = `${environment.apiUrL}/doctor/specialization`;
+    return this.http.get<Doctor[]>(url, this.httpOptions);
+  }
+
 }

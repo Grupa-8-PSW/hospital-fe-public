@@ -8,6 +8,7 @@ import { AvailableAppointments } from '../model/available-appointments.model';
 import { Examination } from '../model/examination.model';
 import { AppointmentService } from '../services/appointment.service';
 import { ExaminationService } from '../services/examination.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-recommendation-system',
@@ -31,7 +32,8 @@ export class RecommendationSystemComponent implements OnInit {
     private appointmentService: AppointmentService, 
     private doctorService: DoctorService, 
     private examinationService: ExaminationService,
-    private authService: AuthService) { }
+    private authService: AuthService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.doctorService.getDoctors().subscribe((res) => {
@@ -68,7 +70,8 @@ export class RecommendationSystemComponent implements OnInit {
       dateRange: this.availableSlots[this.selectedSlotIndex]
     });
     this.examinationService.create(examination).subscribe((res) => {
-      
+      alert("Appointment successfully scheduled!");
+      this.router.navigate(['/appointments']);
     });
   }
 

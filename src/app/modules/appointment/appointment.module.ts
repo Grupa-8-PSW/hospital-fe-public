@@ -16,16 +16,20 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatStepperModule } from '@angular/material/stepper';
+import { CreateAppointmentStepComponent } from './create-appointment-step/create-appointment-step.component';
 
 const routes: Routes = [
-  { path: 'appointment/recommendation-system' ,component: RecommendationSystemComponent},
+  { path: 'appointments/create-with-recommendation' ,component: RecommendationSystemComponent},
+  { path: 'appointments/create-step-by-step' ,component: CreateAppointmentStepComponent},
   { path: 'appointments', component: AppointmentsListComponent, canActivate: [AuthGuard, RoleGuard], data: { roles: ['Patient'] }}
 ]
 
 @NgModule({
   declarations: [
     AppointmentsListComponent,
-    RecommendationSystemComponent
+    RecommendationSystemComponent,
+    CreateAppointmentStepComponent
   ],
   imports: [
     CommonModule,
@@ -39,6 +43,7 @@ const routes: Routes = [
     MatDatepickerModule,
     MatNativeDateModule,
     MatSelectModule,
+    MatStepperModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forChild(routes)
