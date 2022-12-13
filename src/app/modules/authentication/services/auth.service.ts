@@ -53,6 +53,7 @@ export class AuthService {
   }
 
   getUserName(): any {
+    window.alert(JSON.stringify(this.userClaims))
     return this.userClaims.Username;
   }
 

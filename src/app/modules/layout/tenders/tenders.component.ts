@@ -15,30 +15,6 @@ export class TendersComponent implements OnInit {
 
   public offers: any[] | undefined;
 
-  // public offers: any[] = [
-  //   {
-  //     tenderID : 1,
-  //     bloodAmounts : [ 
-  //     {
-  //       bloodType: 'A+',
-  //       bloodAmount: 32,
-  //       priceAmount: 0
-  //     }]
-  //   },
-  //   {
-  //     tenderID : 2,
-  //     bloodAmounts : [ {
-  //       bloodType: 'B+',
-  //       bloodAmount: 17,
-  //       priceAmount: 0
-  //    },
-  //    {
-  //     bloodType: '0+',
-  //     bloodAmount: 32,
-  //     priceAmount: 0
-  //   }]
-  //   }
-  // ];
 
   constructor( private authService: AuthService, @Inject(DOCUMENT) document: Document,
   private ts: TenderService) {
@@ -48,10 +24,10 @@ export class TendersComponent implements OnInit {
   ngOnInit(): void {
     this.authService.loginObserver.subscribe((val) => {
       this.isLogged = val;
-        window.alert(this.authService.getUserName())
        
     });
-
+    
+    this.userRole =  this.authService.getUserRole();
     this.ts.getAllForOffers().subscribe(res => {
       this.offers = res;
     })
