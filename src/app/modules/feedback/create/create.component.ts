@@ -11,6 +11,7 @@ import { FeedbackService } from '../services/feedback.service';
 export class CreateComponent implements OnInit {
 
   feedback: NewFeedback;
+  feedbackError: boolean = false;
 
   constructor(private feedbackService: FeedbackService, private router: Router) {
     this.feedback = {
@@ -24,14 +25,20 @@ export class CreateComponent implements OnInit {
   }
 
   createFeedback(){
-    this.feedbackService.addFeedback(this.feedback).subscribe(() => {
-      alert("Feedback succesfully added!");
-      this.feedback = {
-        text: "",
-        isAnonymous: false,
-        isPublic: false
-     }
-    });
+    if(this.feedback.text == "")
+      this.feedbackError = false;
+    else{
+      this.feedbackError = true;
+      this.feedbackService.addFeedback(this.feedback).subscribe(() => {
+        alert("Feedback succesfully added!");
+        this.feedback = {
+          text: "",
+          isAnonymous: false,
+          isPublic: false
+       }
+      });
+    }
+     
   }
 
   

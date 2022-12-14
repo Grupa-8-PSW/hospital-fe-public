@@ -8,7 +8,7 @@
       <a mat-list-item href="#" class="libre">Link 1</a>
       <a mat-list-item href="#" class="libre">Link 2</a>
       <a mat-list-item class="libre" *ngIf="!isLogged" [routerLink]="['/auth/register']"> Register </a>
-      <a mat-list-item class="libre" *ngIf="!isLogged" [routerLink]="['/auth/login']"> Log in </a>
+      <a mat-list-item class="libre" id="login" *ngIf="!isLogged" [routerLink]="['/auth/login']"> Log in </a>
       <a mat-list-item class="libre" *ngIf="isLogged" (click)="logout()"> Log out </a>
     </mat-nav-list>
   </mat-sidenav>
