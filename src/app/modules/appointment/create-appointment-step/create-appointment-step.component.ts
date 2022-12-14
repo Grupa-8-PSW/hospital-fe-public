@@ -43,7 +43,7 @@ export class CreateAppointmentStepComponent implements OnInit {
 
   constructor(private _formBuilder: FormBuilder, private doctorService: DoctorService, private appointmentService: AppointmentService, private examinationService: ExaminationService, private router: Router) {
     this.doctorSpecializations = [];
-    this.selectedSpecialization = 0;
+    this.selectedSpecialization = -1;
     this.doctors = [];
     this.selectedDoctor = {
       id: 0,
