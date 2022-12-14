@@ -12,7 +12,7 @@ import { AvailableAppointments } from '../model/available-appointments.model';
 })
 export class AppointmentService {
 
-  examinationUrl = `${environment.apiUrL}/Appointment`;
+  examinationUrl = `${environment.apiUrL}/public/Examination`;
 
   httpOptions = {
     headers: { 'Content-Type': 'application/json' }
