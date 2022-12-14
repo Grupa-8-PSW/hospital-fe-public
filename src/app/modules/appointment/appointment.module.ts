@@ -20,8 +20,8 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { CreateAppointmentStepComponent } from './create-appointment-step/create-appointment-step.component';
 
 const routes: Routes = [
-  { path: 'appointments/create-with-recommendation' ,component: RecommendationSystemComponent},
-  { path: 'appointments/create-step-by-step' ,component: CreateAppointmentStepComponent},
+  { path: 'appointments/create-with-recommendation' ,component: RecommendationSystemComponent, canActivate: [AuthGuard, RoleGuard], data: { roles: ['Patient']}},
+  { path: 'appointments/create-step-by-step' ,component: CreateAppointmentStepComponent, canActivate: [AuthGuard, RoleGuard], data: { roles: ['Patient']}},
   { path: 'appointments', component: AppointmentsListComponent, canActivate: [AuthGuard, RoleGuard], data: { roles: ['Patient'] }}
 ]
 
