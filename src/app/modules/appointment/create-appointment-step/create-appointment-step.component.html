@@ -1,6 +1,6 @@
-<div class="grid-container">
-
-    <mat-card class="dashboard-card primary m-5">
+<div class="grid-container row g-0">
+  <div class="col-md-3"></div>
+    <mat-card class="dashboard-card primary m-5 col-md-6 text-center">
         <br>
         <mat-card-header>
         <mat-card-title class="libre-bold">
@@ -8,8 +8,7 @@
         </mat-card-title>
         </mat-card-header>
         <hr><br>
-        <mat-card-content class="dashboard-card-content libre">
-        
+        <mat-card-content class="dashboard-card-content libre">       
               <mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
                 <mat-step [stepControl]="firstFormGroup">
                   <form [formGroup]="firstFormGroup">
@@ -95,5 +94,5 @@
 
         </mat-card-content>
     </mat-card>
-
+    <div class="col-md-3"></div>
 </div>
