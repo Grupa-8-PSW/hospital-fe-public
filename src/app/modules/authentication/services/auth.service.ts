@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { BehaviorSubject, catchError, map, Observable, of } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Credentials } from '../model/credentials.model';
 import { RegisterRequest } from '../model/register-request.model';
 
@@ -10,7 +11,7 @@ import { RegisterRequest } from '../model/register-request.model';
 })
 export class AuthService {
 
-  baseURL: string = "http://localhost:5174/";
+  baseURL: string = `${environment.apiUrL}`;
 
   userClaims: any = null;
   private loginSource = new BehaviorSubject<boolean>(false);
@@ -28,12 +29,12 @@ export class AuthService {
 
   register(registerRequest: RegisterRequest): Observable<RegisterRequest> {
     return this.http
-      .post<RegisterRequest>(this.baseURL + 'api/Auth/register', registerRequest, this.httpOptions)
+      .post<RegisterRequest>(this.baseURL + '/Auth/register', registerRequest, this.httpOptions)
       .pipe(catchError(this.handleError('register', registerRequest)));
   }
   
   login(loginRequest: Credentials): Observable<boolean> {
-    return this.http.post<any>(this.baseURL + 'api/auth/public/login', loginRequest, this.httpOptions).pipe(
+    return this.http.post<any>(this.baseURL + '/auth/public/login', loginRequest, this.httpOptions).pipe(
       map((res) => {
         localStorage.setItem('token', res.jwt);
         this.userClaims = this.jwtHelper.decodeToken();
