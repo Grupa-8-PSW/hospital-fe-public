@@ -56,7 +56,7 @@
             <mat-label>Choose appointment</mat-label>
             <mat-select [(ngModel)]="selectedSlotIndex" name="selectedSlotIndex">
               <mat-option  *ngFor="let slot of availableSlots; let i = index" [value]="i">
-                {{slot.start + " - " + slot.end}}
+                {{slot.start | date:'dd.MM.yyyy. HH:mm'}} - {{slot.end | date:'HH:mm'}} 
               </mat-option>
             </mat-select>
           </mat-form-field>

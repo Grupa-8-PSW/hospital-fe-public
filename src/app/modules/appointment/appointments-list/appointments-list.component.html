@@ -30,7 +30,7 @@
                 <tbody>
                   <tr *ngFor="let app of upcomingAppointments; let i = index">
                     <td>{{i+1}}</td>
-                    <td>{{app.startTime}}</td>
+                    <td>{{app.startTime | date:'dd.MM.yyyy. HH:mm'}}</td>
                     <td>{{app.doctorFullName}}</td>
                     <td>{{app.roomId}}</td>
                     <td>{{app.floorId}}</td>
@@ -67,7 +67,7 @@
                 <tbody>
                   <tr *ngFor="let pastApp of pastAppointments; let i = index">
                     <td>{{i+1}}</td>
-                    <td>{{pastApp.startTime}}</td>
+                    <td>{{pastApp.startTime | date:'dd.MM.yyyy. HH:mm'}}</td>
                     <td>{{pastApp.doctorFullName}}</td>
                     <td>{{pastApp.roomId}}</td>
                     <td>{{pastApp.floorId}}</td>
@@ -101,7 +101,7 @@
                 <tbody>
                   <tr *ngFor="let cancelledApp of cancelledAppointments; let i = index">
                     <td>{{i+1}}</td>
-                    <td>{{cancelledApp.startTime}}</td>
+                    <td>{{cancelledApp.startTime | date:'dd.MM.yyyy. HH:mm'}}</td>
                     <td>{{cancelledApp.doctorFullName}}</td>
                     <td>{{cancelledApp.roomId}}</td>
                     <td>{{cancelledApp.floorId}}</td>

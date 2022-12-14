@@ -71,7 +71,7 @@
                                >
                             <mat-select [(value)]="selectedSlot">
                                 <mat-option *ngFor="let slot of availableSlots" [value]="slot">
-                                    {{slot.start}} - {{slot.end}} 
+                                    {{slot.start | date:'dd.MM.yyyy. HH:mm'}} - {{slot.end | date:'HH:mm'}} 
                                 </mat-option>
                             </mat-select>   
                       </mat-form-field>
