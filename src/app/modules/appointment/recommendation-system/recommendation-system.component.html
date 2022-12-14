@@ -1,52 +1,69 @@
-<div>
-    <form (ngSubmit)="submit()">
-      <mat-form-field appearance="fill">
-          <mat-label>Enter a date range</mat-label>
-          <mat-date-range-input [rangePicker]="picker">
-            <input [(ngModel)]="startDate" matStartDate placeholder="Start date" name="startDate">
-            <input [(ngModel)]="endDate" matEndDate placeholder="End date" name="endDate">
-          </mat-date-range-input>
-          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-date-range-picker #picker></mat-date-range-picker>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Choose doctor</mat-label>
-        <mat-select [(ngModel)]="doctorId" name="doctorId">
-          <mat-option *ngFor="let doctor of doctors" [value]="doctor.id">
-            {{doctor.fullName}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Choose priority</mat-label>
-        <mat-select [(ngModel)]="priority" name="priority">
-          <mat-option value="0">
-            Date
-          </mat-option>
-          <mat-option value="1">
-            Doctor
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-      <button mat-raised-button>Submit</button>
-    </form>
-    <form (ngSubmit)="scheduleAppointment()">
-      <mat-form-field>
-        <mat-label>Choose doctor</mat-label>
-        <mat-select [(ngModel)]="selectedAvailableDoctorId" name="selectedAvailableDoctorId">
-          <mat-option (onSelectionChange)="availableDoctorSelected(i)" *ngFor="let doctor of availableAppointments; let i = index" [attr.data-index]="i" [value]="doctor.doctor.id">
-            {{doctor.doctor.fullName}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-      <mat-form-field class="appointment-select">
-        <mat-label>Choose appointment</mat-label>
-        <mat-select [(ngModel)]="selectedSlotIndex" name="selectedSlotIndex">
-          <mat-option  *ngFor="let slot of availableSlots; let i = index" [value]="i">
-            {{slot.start + " - " + slot.end}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-      <button mat-raised-button>Submit</button>
-    </form>
+<div class="row g-0">
+    <div class="col-md-3"></div>
+    <mat-card class="col-md-6 m-5 text-center">
+      <mat-card-content>
+        <mat-card-header>
+          <mat-card-title>
+            Create appointment
+          </mat-card-title>
+        </mat-card-header>
+        <hr><br>
+        <form (ngSubmit)="submit()">
+          <mat-form-field appearance="fill">
+              <mat-label>Enter a date range</mat-label>
+              <mat-date-range-input [rangePicker]="picker">
+                <input [(ngModel)]="startDate" matStartDate placeholder="Start date" name="startDate">
+                <input [(ngModel)]="endDate" matEndDate placeholder="End date" name="endDate">
+              </mat-date-range-input>
+              <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-date-range-picker #picker></mat-date-range-picker>
+          </mat-form-field>
+          <br>
+          <mat-form-field class="mt-1">
+            <mat-label>Choose doctor</mat-label>
+            <mat-select [(ngModel)]="doctorId" name="doctorId">
+              <mat-option *ngFor="let doctor of doctors" [value]="doctor.id">
+                {{doctor.fullName}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <br>
+          <mat-form-field class="mt-1">
+            <mat-label>Choose priority</mat-label>
+            <mat-select [(ngModel)]="priority" name="priority">
+              <mat-option value="0">
+                Date
+              </mat-option>
+              <mat-option value="1">
+                Doctor
+              </mat-option>
+            </mat-select>
+          </mat-form-field><br>
+          <button  class="mt-1" color="primary" mat-raised-button>Submit</button>
+        </form>
+        <form *ngIf="availableAppointments" (ngSubmit)="scheduleAppointment()">
+          <hr>
+          <mat-form-field>
+            <mat-label>Choose doctor</mat-label>
+            <mat-select [(ngModel)]="selectedAvailableDoctorId" name="selectedAvailableDoctorId">
+              <mat-option (onSelectionChange)="availableDoctorSelected(i)" *ngFor="let doctor of availableAppointments; let i = index" [attr.data-index]="i" [value]="doctor.doctor.id">
+                {{doctor.doctor.fullName}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <br>
+          <mat-form-field class="mt-1">
+            <mat-label>Choose appointment</mat-label>
+            <mat-select [(ngModel)]="selectedSlotIndex" name="selectedSlotIndex">
+              <mat-option  *ngFor="let slot of availableSlots; let i = index" [value]="i">
+                {{slot.start + " - " + slot.end}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <br>
+          <button mat-raised-button color="primary" class="mt-1">Schedule</button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+    <div class="col-md-3"></div>
 </div>
