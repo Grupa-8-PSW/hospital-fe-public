@@ -1,7 +1,7 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Appointment } from '../model/appointment.model';
 import { AppointmentService } from '../services/appointment.service';
-
 @Component({
   selector: 'app-appointments-list',
   templateUrl: './appointments-list.component.html',
@@ -15,7 +15,7 @@ export class AppointmentsListComponent implements OnInit {
   cancelledAppointments: Appointment[];
   appointmentId: number;
 
-  constructor(private appointmentService: AppointmentService) { 
+  constructor(private appointmentService: AppointmentService) {
     this.appointments = [];
     this.pastAppointments = [];
     this.upcomingAppointments = [];
@@ -33,7 +33,20 @@ export class AppointmentsListComponent implements OnInit {
       this.systematizeAppointments(this.appointments);
     });
   }
-
+  downloadPDF(index : number): void{
+    this.appointmentId=this.pastAppointments[index].id;
+    this.appointmentService.downloadPDF(this.appointmentId).subscribe({
+      next: (response: { headers: { get: (arg0: string) => string; }; body: Blob; }) => {
+        const blob = response.body as Blob;
+        let a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        window.open(a.href);
+      },
+      error: (err: any) => {
+        console.log(err);
+      }
+    })
+  }
   systematizeAppointments(appointments: Appointment[]){
     appointments.forEach( (app: Appointment) => {
       if(app.status == 0){
@@ -45,7 +58,7 @@ export class AppointmentsListComponent implements OnInit {
       }
    });
   }
-  
+
   cancelAppointment(index: number){
     this.appointmentId = this.upcomingAppointments[index].id;
     this.appointmentService.cancelAppointment(this.appointmentId).subscribe((res: boolean) => {

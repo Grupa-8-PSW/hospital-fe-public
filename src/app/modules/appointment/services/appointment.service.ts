@@ -6,7 +6,7 @@ import { DateRange } from '../../shared/model/date-range.model';
 import { Appointment } from '../model/appointment.model';
 import { AppointmentPriority } from '../enum/appointment-priority';
 import { AvailableAppointments } from '../model/available-appointments.model';
-
+import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
@@ -46,7 +46,12 @@ export class AppointmentService {
       return of(result as T);
     };
   }
-
+  downloadPDF(id:number): any {
+    return this.http.get(this.examinationUrl+'/generateReport/'+id, {
+      observe: 'response',
+      responseType: 'blob'
+    });
+  }
   getRecommended(dateRange: DateRange, doctorId: number, priority: AppointmentPriority): Observable<Array<AvailableAppointments>> {
     const startDateIso = `${dateRange.start.getFullYear()}-${dateRange.start.getMonth()+1}-${dateRange.start.getDate()}`;
     const endDateIso = `${dateRange.end.getFullYear()}-${dateRange.end.getMonth()+1}-${dateRange.end.getDate()}`;
@@ -56,7 +61,7 @@ export class AppointmentService {
 
   getAppointmentsForDoctorDate(date: Date, doctorId: number): Observable<AvailableAppointments>{
     const dateIso = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`;
-    const url = `${environment.apiUrL}/Appointment/available/doctor-date?date=${dateIso}&doctorId=${doctorId}`;    
+    const url = `${environment.apiUrL}/Appointment/available/doctor-date?date=${dateIso}&doctorId=${doctorId}`;
     return this.http.get<AvailableAppointments>(url, this.httpOptions);
   }
 
