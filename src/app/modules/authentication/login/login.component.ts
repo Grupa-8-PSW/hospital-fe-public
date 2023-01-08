@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit {
 
   public credentials = new Credentials();
   public error: boolean = false;
+  public passwordHide: boolean = true;
 
   constructor(private authService: AuthService, private router: Router) { }
 

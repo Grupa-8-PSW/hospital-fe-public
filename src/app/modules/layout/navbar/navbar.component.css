@@ -1,20 +1,43 @@
 @import url('../../../../assets/fonts/fonts.css');
 @import url('../../../../assets/colors/palette.css');
 
-.sidenav-container {
+.main-toolbar {
+  z-index: 2;
+}
+
+.main-toolbar {
+  border-radius: 10px;
+  width: 98%;
+  margin-left: 1%;
+  margin-top: 5px;
+  margin-bottom: 25px;
+} 
+
+.main-toolbar mat-icon {
+  color: black;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.main-sidenav {
+  position: fixed;
   height: 100%;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
-.sidenav {
-  width: 200px;
+.main-toolbar-title {
+  color: black;
 }
 
-.sidenav .mat-toolbar {
-  background: inherit;
+.bottom-menu-items {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
-.mat-toolbar.mat-primary {
-  position: sticky;
-  top: 0;
-  z-index: 1;
+.main-menu-items {
+  margin-top: 100px;
 }

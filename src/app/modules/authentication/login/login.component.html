@@ -1,27 +1,36 @@
-<mat-card class="secondary">
-  <form (ngSubmit)="login()" class="center tertiary w-25" style="padding:40px">
-    <mat-card-header class="row" style="margin-top: 2%">
-      <mat-card-title style="margin-bottom: 5%;" class="libre">Log in</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <div class="row">
-        <mat-form-field>
+<div class="login-wrapper">
+  <mat-card class="tertiary w-30">
+    <form (ngSubmit)="login()" style="padding:40px">
+      <mat-card-header class="row" style="margin-top: 2%">
+        <mat-card-title>
+          <mat-icon color="primary">lock</mat-icon>
+          <h1>
+            Log in
+          </h1>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-form-field class="w-100" appearance="outline">
+          <mat-label>Username</mat-label>
           <input required type="text" matInput placeholder="Username" name="username" [(ngModel)]="credentials.username">
-      </mat-form-field>
-      </div>
-      <div class="row">
-        <mat-form-field>
-          <input required type="password" matInput placeholder="Password" name="password" [(ngModel)]="credentials.password">
-      </mat-form-field>
-      </div>
-      <div class="row">
-        <p *ngIf="error">
+        </mat-form-field>
+        <mat-form-field class="w-100" appearance="outline">
+          <mat-label>Password</mat-label>
+          <input required [type]="passwordHide ? 'password' : 'text'" matInput placeholder="Password" name="password" [(ngModel)]="credentials.password">
+          <button class="hide-password" mat-icon-button matSuffix (click)="passwordHide = !passwordHide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="passwordHide">
+            <mat-icon>{{passwordHide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+        <p *ngIf="error" class="error-text">
           Wrong username and/or password
         </p>
-      </div>
-    </mat-card-content>
-    <mat-card-actions class="row">
-      <button mat-raised-button class="primary libre" type="submit" name="submit" style="width:20%;float: right;margin-right: 10%;">Log in</button>
-    </mat-card-actions>
-  </form>
-</mat-card>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button class="primary libre login-btn" type="submit" name="submit">Log in</button>
+        <a [routerLink]="['/auth/register']" class="register-text">
+          Don't have an account? Sign Up
+        </a>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+</div>
