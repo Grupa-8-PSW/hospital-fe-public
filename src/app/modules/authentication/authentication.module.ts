@@ -22,11 +22,10 @@ const routes: Routes = [
   imports: [
     CommonModule,
     MaterialModule,
-    FormsModule,
-    ReactiveFormsModule,
     MatCheckboxModule,
     MatRadioModule,
     JwtModule,
+    FormsModule,
     RouterModule.forChild(routes)
   ]
 })

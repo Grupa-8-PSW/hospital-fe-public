@@ -25,6 +25,7 @@ import { AppointmentModule } from '../appointment/appointment.module';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    MatIconModule,
     AppRoutingModule,
     MatGridListModule,
     MatCardModule,

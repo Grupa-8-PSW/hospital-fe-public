@@ -1,37 +1,41 @@
-<mat-sidenav-container class="sidenav-container secondary">
-  <mat-sidenav #drawer class="sidenav tertiary" fixedInViewport
-      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-      [mode]="(isHandset$ | async) ? 'over' : 'side'"
-      [opened]="(isHandset$ | async) === false">
-    <mat-toolbar class="libre-bold">Menu</mat-toolbar>
+<mat-sidenav-container class="secondary" autosize style="height: 100%;">
+  <mat-sidenav #sidenav class="primary main-sidenav" mode="side" opened="true">
     <mat-nav-list>
-      <a mat-list-item href="#" class="libre">Link 1</a>
-      <a mat-list-item class="libre" *ngIf="isLogged" [routerLink]="['/appointments']" id="appointments"> My appointments </a>
-      <a mat-list-item class="libre" *ngIf="!isLogged" [routerLink]="['/auth/register']"> Register </a>
-      <a mat-list-item class="libre" id="login" *ngIf="!isLogged" [routerLink]="['/auth/login']"> Log in </a>
-      <a mat-list-item class="libre" *ngIf="isLogged" (click)="logout()"> Log out </a>
+      <a mat-list-item>
+        <mat-icon mat-list-icon (click)="isExpanded = !isExpanded">menu</mat-icon>
+        <p matLine *ngIf="isExpanded">Menu</p>
+      </a>
+      <div class="main-menu-items">
+        <a mat-list-item [routerLink]="['/home']" role="button">
+          <mat-icon mat-list-icon>home</mat-icon>
+          <p matLine *ngIf="isExpanded">Home</p>
+        </a>
+        <a *ngIf="isLogged" mat-list-item class="libre" [routerLink]="['/appointments']" id="appointments">
+          <mat-icon mat-list-icon>calendar_month</mat-icon>
+          <p matLine *ngIf="isExpanded">My appointments</p>  
+        </a>
+      </div>
+      <div class="bottom-menu-items">
+        <a *ngIf="!isLogged" mat-list-item class="libre" [routerLink]="['/auth/login']" id="appointments">
+          <mat-icon mat-list-icon>login</mat-icon>
+          <p matLine *ngIf="isExpanded">Login</p>  
+        </a>
+        <a *ngIf="isLogged" mat-list-item class="libre" (click)="logout()" id="appointments">
+          <mat-icon mat-list-icon>logout</mat-icon>
+          <p matLine *ngIf="isExpanded">Logout</p>  
+        </a>
+      </div>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar class="primary">
-      <button
-        type="button"
-        aria-label="Toggle sidenav"
-        mat-icon-button
-        (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
-      <span class="libre-bold" [routerLink]="['/home']" role="button">Hope Hospital</span>
+    <mat-toolbar class="main-toolbar tertiary">
+      <span class="main-toolbar-title"><b>Hope Hospital</b></span>
+      <mat-divider [vertical]="true"></mat-divider>
+      <span class="spacer"></span>
     </mat-toolbar>
     
     <!-- CONTENT IS RENDERED HERE -->
     <router-outlet></router-outlet>
 
-    <footer class="flex-shrink-0 pb-4 text-white-50 mt-auto">
-      <div class="container text-center">
-        <small class="libre-italic" style="color:black;">PSW 2022-2023 &copy;</small>
-      </div>
-    </footer>
   </mat-sidenav-content>
 </mat-sidenav-container>

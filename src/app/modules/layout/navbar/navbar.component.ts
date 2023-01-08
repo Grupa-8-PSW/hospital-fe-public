@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent {
 
+  isExpanded: boolean = false;
   isLogged: boolean = false;
   userRole: string = '';
 
