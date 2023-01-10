@@ -14,6 +14,7 @@ import { AuthenticationModule } from './modules/authentication/authentication.mo
 import { JwtInterceptor } from "./modules/authentication/helpers/jwt.interceptor";
 import { JwtModule } from "@auth0/angular-jwt";
 import { AppointmentModule } from './modules/appointment/appointment.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { AppointmentModule } from './modules/appointment/appointment.module';
     PatientModule,
     AuthenticationModule,
     AppointmentModule,
+    NgbModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: () => localStorage.getItem('token')
