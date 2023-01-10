@@ -44,5 +44,47 @@
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>
+
+    <mat-grid-tile class="carousel-container">
+      <ngb-carousel class="w-75 primary">
+        <ng-template *ngFor="let bbn of bloodBankNews" ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img [src]="bbn.imgSrc">
+          </div>
+          <div class="carousel-caption">
+            <h3>{{bbn.subject}}</h3>
+            <p>{{bbn.text}}}</p>
+          </div>
+        </ng-template>
+        <!--
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img src="https://firebasestorage.googleapis.com/v0/b/isapsw-6ef61.appspot.com/o/crveni-krst-jpg_660x330.jpg?alt=media&token=952372fe-4ce6-4482-9f1d-e466ec0b8dce" alt="Random first slide">
+          </div>
+          <div class="carousel-caption">
+            <h3>First slide label</h3>
+            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img src="https://firebasestorage.googleapis.com/v0/b/isapsw-6ef61.appspot.com/o/slika.png?alt=media&token=cc4a66f7-98fc-4641-ae08-a0ba96938581" alt="Random first slide">
+          </div>
+          <div class="carousel-caption">
+            <h3>First slide label</h3>
+            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img src="https://firebasestorage.googleapis.com/v0/b/isapsw-6ef61.appspot.com/o/h3.jpg?alt=media&token=482263cb-3590-405f-9c1e-e1fcd46b5229" alt="Random first slide">
+          </div>
+          <div class="carousel-caption">
+            <h3>First slide label</h3>
+            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          </div>
+        </ng-template>-->
+      </ngb-carousel>
+    </mat-grid-tile>
   </mat-grid-list>
 </div>

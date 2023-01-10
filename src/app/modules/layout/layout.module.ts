@@ -13,6 +13,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { FeedbackModule } from '../feedback/feedback.module';
 import { AppointmentModule } from '../appointment/appointment.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: 
@@ -31,6 +32,7 @@ import { AppointmentModule } from '../appointment/appointment.module';
     MatCardModule,
     MatMenuModule,
     FeedbackModule,
+    NgbModule,
     AppointmentModule
   ],
   exports: [NavbarComponent]
