@@ -9,6 +9,12 @@ import { Examination } from '../model/examination.model';
 import { AppointmentService } from '../services/appointment.service';
 import { ExaminationService } from '../services/examination.service';
 import { Router } from '@angular/router';
+import { EventService } from '../services/event.service';
+import { DateEvent } from '../model/date-event.model';
+import { SpecializationEvent } from '../model/specialization-event.model';
+import { DoctorEvent } from '../model/doctor-event.model';
+import { AppointmentEvent } from '../model/appointment-event.model';
+import { SessionEndEvent } from '../model/session-end-event.model';
 
 @Component({
   selector: 'app-create-appointment-step',
@@ -40,11 +46,13 @@ export class CreateAppointmentStepComponent implements OnInit {
   availableAppointments: AvailableAppointments;
   availableSlots: DateRange[];
   selectedSlot: DateRange;
+  aggregateId: number;
 
-  constructor(private _formBuilder: FormBuilder, private doctorService: DoctorService, private appointmentService: AppointmentService, private examinationService: ExaminationService, private router: Router) {
+  constructor(private _formBuilder: FormBuilder, private doctorService: DoctorService, private eventService: EventService, private appointmentService: AppointmentService, private examinationService: ExaminationService, private router: Router) {
     this.doctorSpecializations = [];
     this.selectedSpecialization = -1;
     this.doctors = [];
+    this.aggregateId = 0;
     this.selectedDoctor = {
       id: 0,
       firstName: '',
@@ -70,6 +78,7 @@ export class CreateAppointmentStepComponent implements OnInit {
 
   ngOnInit(): void {
     this.fillSpecializationSelect();
+    this.sessionStarted();
   }
 
 
@@ -84,7 +93,9 @@ export class CreateAppointmentStepComponent implements OnInit {
     this.examinationService.create(examination).subscribe((res) => {
       alert("Appointment successfully scheduled!");
       this.router.navigate(['/appointments']);
+      this.eventService.sessionFinished(new SessionEndEvent(this.aggregateId)).subscribe(() => {});
     });
+
   }
 
   fillSpecializationSelect(){
@@ -109,4 +120,27 @@ export class CreateAppointmentStepComponent implements OnInit {
       });
     }
   }
+
+  sessionStarted(){
+    this.eventService.sessionStarted().subscribe((res) => {
+      this.aggregateId = res;
+    })
+  }
+
+  dateSelected(){
+    this.eventService.dateSelected(new DateEvent(this.aggregateId, this.selectedDate)).subscribe(() => {});
+  }
+
+  specializationSelected(){
+    this.eventService.specializationSelected(new SpecializationEvent(this.aggregateId, this.selectedSpecialization)).subscribe(() => {});
+  }
+  
+  doctorSelected(){
+    this.eventService.doctorSelected(new DoctorEvent(this.aggregateId, this.selectedDoctor.id)).subscribe(() => {});
+  }
+
+  appointmentSelected(){
+    this.eventService.appointmentSelected(new AppointmentEvent(this.aggregateId, this.selectedSlot)).subscribe(() => {});
+  }
+
 }
