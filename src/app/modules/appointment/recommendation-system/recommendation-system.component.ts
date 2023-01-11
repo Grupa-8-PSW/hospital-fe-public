@@ -9,6 +9,7 @@ import { Examination } from '../model/examination.model';
 import { AppointmentService } from '../services/appointment.service';
 import { ExaminationService } from '../services/examination.service';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-recommendation-system',
@@ -33,7 +34,8 @@ export class RecommendationSystemComponent implements OnInit {
     private doctorService: DoctorService, 
     private examinationService: ExaminationService,
     private authService: AuthService,
-    private router: Router) { }
+    private router: Router,
+    private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.doctorService.getDoctors().subscribe((res) => {
@@ -69,8 +71,10 @@ export class RecommendationSystemComponent implements OnInit {
       dateRange: this.availableSlots[this.selectedSlotIndex]
     });
     this.examinationService.create(examination).subscribe((res) => {
-      alert("Appointment successfully scheduled!");
-      this.router.navigate(['/appointments']);
+      this.snackBar.open("Appointment successfully scheduled!", "Ok");
+      setTimeout(() => {
+        this.router.navigate(['/appointments']);
+      }, 2000);
     });
   }
 

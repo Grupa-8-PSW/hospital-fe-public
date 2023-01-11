@@ -8,6 +8,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { RecommendationSystemComponent } from './recommendation-system/recommendation-system.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MaterialModule } from 'src/app/material/material.module';
@@ -18,6 +20,9 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatStepperModule } from '@angular/material/stepper';
 import { CreateAppointmentStepComponent } from './create-appointment-step/create-appointment-step.component';
+import { MatRadioModule } from '@angular/material/radio';
+import { SelectSchedulingDialogComponent } from './appointments-list/dialogs/select-scheduling-dialog/select-scheduling-dialog.component';
+import { CancelConfirmationDialogComponent } from './appointments-list/dialogs/cancel-confirmation-dialog/cancel-confirmation-dialog.component';
 
 const routes: Routes = [
   { path: 'appointments/create-with-recommendation' ,component: RecommendationSystemComponent, canActivate: [AuthGuard, RoleGuard], data: { roles: ['Patient']}},
@@ -29,7 +34,9 @@ const routes: Routes = [
   declarations: [
     AppointmentsListComponent,
     RecommendationSystemComponent,
-    CreateAppointmentStepComponent
+    CreateAppointmentStepComponent,
+    SelectSchedulingDialogComponent,
+    CancelConfirmationDialogComponent
   ],
   imports: [
     CommonModule,
@@ -42,6 +49,9 @@ const routes: Routes = [
     MatMenuModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatRadioModule,
+    MatSnackBarModule,
+    MatDialogModule,
     MatSelectModule,
     MatStepperModule,
     FormsModule,

@@ -12,7 +12,7 @@
 }
 
 .login-wrapper mat-card-header {
-    color: black;
+
     text-align: center;
     display: block;
     font-weight: 700;
@@ -37,24 +37,17 @@
 
 .register-text {
     font-size: large;
+    color: blue;
 }
 
 .login-wrapper mat-card-actions button {
     margin-bottom: 15px;
-}
-
-.login-wrapper input {
-    color: black;
-}
+} 
 
 .hide-password mat-icon {
     color: #c2185b;
 }
 
 ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
-    color: grey!important;
-}
-
-::ng-deep .mat-form-field-label {
-    color: rgba(0,0,0,.6)!important;
+    color: #c2185b!important;
 }
