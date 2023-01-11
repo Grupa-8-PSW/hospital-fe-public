@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Appointment } from '../model/appointment.model';
 import { AppointmentService } from '../services/appointment.service';
 import {MatDialog} from '@angular/material/dialog';
-import { SelectSchedulingDialogComponent } from './dialogs/select-scheduling-dialog/select-scheduling-dialog.component';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { SelectSchedulingDialogComponent } from './dialogs/select-scheduling-dialog/select-scheduling-dialog.component';
 import { CancelConfirmationDialogComponent } from './dialogs/cancel-confirmation-dialog/cancel-confirmation-dialog.component';
 
 @Component({
@@ -69,10 +69,16 @@ export class AppointmentsListComponent implements OnInit {
       this.appointmentId = this.upcomingAppointments[index].id;
       this.appointmentService.cancelAppointment(this.appointmentId).subscribe((res: boolean) => {
         if(res){
-          this.snackBar.open('Appointment successfully cancelled', 'Ok');
+          this.snackBar.open('Appointment successfully cancelled', 'Ok', {
+            duration: 2000,
+            panelClass: ['snack-bar']
+          });
           this.ngOnInit();
         } else {
-          this.snackBar.open('Cannot cancel appointment as it is scheduled in the next 24 hours', 'Ok');
+          this.snackBar.open('Cannot cancel appointment as it is scheduled in the next 24 hours', 'Ok', {
+            duration: 2000,
+            panelClass: ['snack-bar']
+          });
         }
       });
     })

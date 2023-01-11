@@ -71,7 +71,10 @@ export class RecommendationSystemComponent implements OnInit {
       dateRange: this.availableSlots[this.selectedSlotIndex]
     });
     this.examinationService.create(examination).subscribe((res) => {
-      this.snackBar.open("Appointment successfully scheduled!", "Ok");
+      this.snackBar.open("Appointment successfully scheduled!", "Ok", {
+        duration: 2000,
+        panelClass: ['snack-bar']
+      });
       setTimeout(() => {
         this.router.navigate(['/appointments']);
       }, 2000);

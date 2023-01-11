@@ -26,6 +26,9 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.credentials).subscribe(res => {
       this.router.navigate(['/']);
     },
-    error => this.snackBar.open("Wrong username and/or password!", "Ok"));
+    error => this.snackBar.open("Wrong username and/or password!", "Ok", {
+      duration: 2000,
+      panelClass: ['snack-bar']
+    }));
   }
 }
