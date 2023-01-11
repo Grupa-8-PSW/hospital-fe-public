@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { Routes, RouterModule  } from '@angular/router';
 import { JwtModule } from '@auth0/angular-jwt';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 const routes: Routes = [
   {path: 'auth/login', component: LoginComponent},
@@ -26,6 +27,7 @@ const routes: Routes = [
     MatRadioModule,
     JwtModule,
     FormsModule,
+    MatSnackBarModule,
     RouterModule.forChild(routes)
   ]
 })

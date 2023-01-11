@@ -22,7 +22,10 @@ export class NavbarComponent {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver, private authService: AuthService, private router: Router) {}
+  constructor(
+    private breakpointObserver: BreakpointObserver, 
+    private authService: AuthService, 
+    private router: Router) {}
 
   ngOnInit(): void {
     this.authService.loginObserver.subscribe((val) => {
@@ -35,5 +38,6 @@ export class NavbarComponent {
   logout(): void {
     this.authService.logout();
     this.userRole = '';
+    this.router.navigate(['/home']);
   }
 }

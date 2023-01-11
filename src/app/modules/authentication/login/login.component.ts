@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Credentials } from '../model/credentials.model';
 import { AuthService } from '../services/auth.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -11,10 +12,12 @@ import { AuthService } from '../services/auth.service';
 export class LoginComponent implements OnInit {
 
   public credentials = new Credentials();
-  public error: boolean = false;
   public passwordHide: boolean = true;
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(
+    private authService: AuthService, 
+    private router: Router,
+    private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
@@ -23,6 +26,6 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.credentials).subscribe(res => {
       this.router.navigate(['/']);
     },
-    error => this.error = true);
+    error => this.snackBar.open("Wrong username and/or password!", "Ok"));
   }
 }
