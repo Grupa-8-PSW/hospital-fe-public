@@ -8,3 +8,12 @@ mat-card {
 .align-right {
     margin-left: auto;
 }
+
+.font-color-primary {
+    color: #c2185b;
+}
+
+.icon-primary {
+    color: #c2185b;
+    transform: scale(2.5);
+}

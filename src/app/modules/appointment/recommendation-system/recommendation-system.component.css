@@ -9,11 +9,21 @@ form {
 }
 
 mat-icon {
-    color: #c2185b;
-    transform: scale(1.5);
+    color: #ffffff;
 }
 
 ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
     color: #c2185b!important;
 }
 
+.big-icon {
+    transform: scale(2);
+  }
+
+.dark {
+    background-color: #424242;
+}
+
+.center-button {
+    text-align: center;
+}

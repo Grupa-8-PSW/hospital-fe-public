@@ -1,4 +1,8 @@
 mat-icon {
+    color: #ffffff;
+    transform: scale(2);
+}
+
+.font-color-primary {
     color: #c2185b;
-    transform: scale(1.5);
 }

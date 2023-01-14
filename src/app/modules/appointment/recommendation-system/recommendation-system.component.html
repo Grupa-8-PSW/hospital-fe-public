@@ -1,10 +1,10 @@
 <div class="row g-0">
-    <div class="col-md-3"></div>
-    <mat-card class="col-md-6 m-5 tertiary">
-      <mat-card-header>
+    <div class="col-md-2"></div>
+    <mat-card class="col-md-8 m-5 primary">
+      <mat-card-header class="mt-3">
         <mat-card-title>
           <h1>
-            <mat-icon>
+            <mat-icon class="big-icon me-3">
               schedule
             </mat-icon>
             &nbsp;
@@ -13,7 +13,7 @@
         </mat-card-title>
       </mat-card-header>
       <hr>
-      <mat-card-content>
+      <mat-card-content class="dark mt-5 pt-5 pb-4">
         <form (ngSubmit)="submit()">
           <mat-form-field appearance="outline">
               <mat-label>Enter a date range</mat-label>
@@ -66,8 +66,8 @@
           </mat-form-field>
           <br>
           <button mat-raised-button color="primary" class="mt-1">Schedule</button>
-        </form>
+          </form>
       </mat-card-content>
     </mat-card>
-    <div class="col-md-3"></div>
+    <div class="col-md-2"></div>
 </div>

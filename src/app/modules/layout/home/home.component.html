@@ -1,10 +1,11 @@
 <div class="grid-container">
   <mat-grid-list rows="4" cols="1" rowHeight="400px">
-    <mat-grid-tile>
+    <mat-grid-tile *ngIf="!isLogged">
       <mat-card class="dashboard-card primary">
         <br>
         <mat-card-header>
           <mat-card-title class="libre-bold">
+            <mat-icon class="icon-secondary me-3">accessibility_new</mat-icon>
             Welcome
           </mat-card-title>
         </mat-card-header>
@@ -19,11 +20,12 @@
       </mat-card>
     </mat-grid-tile>
 
-    <mat-grid-tile rowspan="2">
+    <mat-grid-tile rowspan="2" *ngIf="!isLogged">
       <mat-card class="dashboard-card primary">
         <br>
         <mat-card-header>
           <mat-card-title class="libre-bold">
+            <mat-icon class="icon-secondary me-3">comment</mat-icon>
             Feedback
           </mat-card-title>
           <a [routerLink]="['/createFeedback']" *ngIf="userRole == 'Patient'" id="createFeedback" style="margin-left: auto;margin-top: -10px">
@@ -45,15 +47,15 @@
       </mat-card>
     </mat-grid-tile>
 
-    <mat-grid-tile class="carousel-container">
-      <ngb-carousel class="w-75 primary">
+    <mat-grid-tile class="carousel-container" *ngIf="isLogged">
+      <ngb-carousel class="w-100 primary">
         <ng-template *ngFor="let bbn of bloodBankNews" ngbSlide>
           <div class="picsum-img-wrapper">
             <img [src]="bbn.imgSrc">
           </div>
           <div class="carousel-caption">
-            <h3>{{bbn.subject}}</h3>
-            <p>{{bbn.text}}}</p>
+            <h3 class="libre-bold">{{bbn.subject}}</h3>
+            <p class="libre-italic">{{bbn.text}}}</p>
           </div>
         </ng-template>
         <!--

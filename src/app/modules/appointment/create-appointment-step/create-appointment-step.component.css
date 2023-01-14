@@ -1,3 +1,7 @@
+@import url('../../../../assets/fonts/fonts.css');
+@import url('../../../../assets/colors/palette.css');
+
+
 .mat-stepper-vertical {
     margin-top: 8px;
   }
@@ -5,3 +9,7 @@
   .mat-mdc-form-field {
     margin-top: 16px;
   }
+
+.big-icon {
+  transform: scale(2);
+}

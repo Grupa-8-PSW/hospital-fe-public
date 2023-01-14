@@ -1,82 +1,92 @@
+<div class="login-wrapper mb-4">
+   <mat-card class="primary">
 <div class="row g-0 mt-5">
     <div class="col-md-8 text-center m-auto w-25">
-      <h1 class="text-center libre-bold mb-3">Registration</h1>
         <form (ngSubmit)="register()">
+         <mat-card-header>
+            <mat-card-title class="text-center">
+               <mat-icon>how_to_reg</mat-icon>
+              <h1 class="libre-bold">
+                Register
+              </h1>
+            </mat-card-title>
+          </mat-card-header>
              <div class="form-outline mb-4">
-               <input type="text" id="firstname" class="form-control form-control-md libre text-center" name="firstname" [(ngModel)]="registerUser.firstName" required/>
-               <label class="form-label libre" for="firstname">Name</label>
+               <input type="text" id="firstname" class="form-control form-control-md libre-italic text-center" name="firstname" [(ngModel)]="registerUser.firstName" required/>
+               <label class="form-label libre-italic" for="firstname">Name</label>
              </div>
              <div class="form-outline mb-4">
-                <input type="text" id="lastname" class="form-control form-control-md libre text-center" name="lastname" [(ngModel)]="registerUser.lastName" required/>
-                <label class="form-label libre" for="lastname">Surname</label>
+                <input type="text" id="lastname" class="form-control form-control-md libre-italic text-center" name="lastname" [(ngModel)]="registerUser.lastName" required/>
+                <label class="form-label libre-italic" for="lastname">Surname</label>
              </div>
              <div class="form-outline mb-4">
-                <input type="text" id="email" class="form-control form-control-md libre text-center" name="email" [(ngModel)]="registerUser.email" required/>
-                <label class="form-label libre" for="email">Email</label>
+                <input type="text" id="email" class="form-control form-control-md libre-italic text-center" name="email" [(ngModel)]="registerUser.email" required/>
+                <label class="form-label libre-italic" for="email">Email</label>
              </div> 
              <div class="form-outline mb-4">
-                <input type="text" id="country" class="form-control form-control-md libre text-center" name="country" [(ngModel)]="registerUser.address.country" required/>
-                <label class="form-label libre" for="country">Country</label>
+                <input type="text" id="country" class="form-control form-control-md libre-italic text-center" name="country" [(ngModel)]="registerUser.address.country" required/>
+                <label class="form-label libre-italic" for="country">Country</label>
              </div>
              <div class="form-outline mb-4">
-                <input type="text" id="city" class="form-control form-control-md libre text-center" name="city" [(ngModel)]="registerUser.address.city"/>
-                <label class="form-label libre" for="city">City</label>
+                <input type="text" id="city" class="form-control form-control-md libre-italic text-center" name="city" [(ngModel)]="registerUser.address.city"/>
+                <label class="form-label libre-italic" for="city">City</label>
              </div>
              <div class="form-outline mb-4">
-                <input type="text" id="street" class="form-control form-control-md libre text-center" name="street" [(ngModel)]="registerUser.address.street"/>
-                <label class="form-label libre" for="street">Street</label>
+                <input type="text" id="street" class="form-control form-control-md libre-italic text-center" name="street" [(ngModel)]="registerUser.address.street"/>
+                <label class="form-label libre-italic" for="street">Street</label>
              </div>
              <div class="form-outline mb-4">
-                <input type="text" id="number" class="form-control form-control-md libre text-center" name="number" min = "0"[(ngModel)]="registerUser.address.number"/>
-                <label class="form-label libre" for="country">Street number</label>
+                <input type="text" id="number" class="form-control form-control-md libre-italic text-center" name="number" min = "0"[(ngModel)]="registerUser.address.number"/>
+                <label class="form-label libre-italic" for="country">Street number</label>
              </div>
              <div class="form-outline mb-4">
-                <input type="text" id="pin" class="form-control form-control-md libre text-center" name="pin" [(ngModel)]="registerUser.pin" required/>
-                <label class="form-label libre" for="pin">PIN</label>
+                <input type="text" id="pin" class="form-control form-control-md libre-italic text-center" name="pin" [(ngModel)]="registerUser.pin" required/>
+                <label class="form-label libre-italic" for="pin">PIN</label>
              </div>
              <div class = "form-outline mb-4">
                <div *ngFor="let allergen of allergens; let i = index" class="mb-4">
                   <div class="row">
-                      <mat-checkbox class="example-margin libre" name="isAnonymous" style="margin-bottom:20px" (change)="onChangeAllergens(i)">{{allergen.name.name}}</mat-checkbox>
+                      <mat-checkbox class="example-margin libre-italic" name="isAnonymous" style="margin-bottom:20px" (change)="onChangeAllergens(i)">{{allergen.name.name}}</mat-checkbox>
                     </div>
                 </div>
              </div>
              <div class="form-outline mb-4">
-               <input  id="username" class="form-control form-control-md libre text-center" name="username" [(ngModel)]="registerRequest.username" required/>
-               <label class="form-label libre" for="password1">Username</label>
+               <input  id="username" class="form-control form-control-md libre-italic text-center" name="username" [(ngModel)]="registerRequest.username" required/>
+               <label class="form-label libre-italic" for="password1">Username</label>
              </div>
              <div class="form-outline mb-4">
-               <input type="password" id="password1" class="form-control form-control-md libre text-center" name="password1" required/>
-               <label class="form-label libre" for="password1">Password</label>
+               <input type="password" id="password1" class="form-control form-control-md libre-italic text-center" name="password1" required/>
+               <label class="form-label libre-italic" for="password1">Password</label>
              </div>
              <div class="form-outline mb-4">
-                <input type="password" id="password2" class="form-control form-control-md libre text-center" name="password2" [(ngModel)]="registerRequest.password" required/>
-                <label class="form-label libre" for="password2">Confirm Password</label>
+                <input type="password" id="password2" class="form-control form-control-md libre-italic text-center" name="password2" [(ngModel)]="registerRequest.password" required/>
+                <label class="form-label libre-italic" for="password2">Confirm Password</label>
              </div>
-             <div class="form-outline mb-4 p-3 border rounded">
+             <div class="form-outline mb-4 p-3 border rounded libre-italic">
                <mat-radio-group name="bloodType" id="gender" required>
-                  <mat-radio-button value="0" (change) = "onChangeBloodType(0)">O+</mat-radio-button>&nbsp;&nbsp;&nbsp;
-                  <mat-radio-button value="1" (change) = "onChangeBloodType(1)" >O-</mat-radio-button><br>
-                  <mat-radio-button value="2" (change) = "onChangeBloodType(2)">A+</mat-radio-button>&nbsp;&nbsp;&nbsp;
-                  <mat-radio-button value="3" (change) = "onChangeBloodType(3)">A-</mat-radio-button><br>
-                  <mat-radio-button value="4" (change) = "onChangeBloodType(4)">B+</mat-radio-button>&nbsp;&nbsp;&nbsp;
-                  <mat-radio-button value="5" (change) = "onChangeBloodType(5)">B-</mat-radio-button><br>
-                  <mat-radio-button value="6" (change) = "onChangeBloodType(6)">AB+</mat-radio-button>
-                  <mat-radio-button value="7" (change) = "onChangeBloodType(7)">AB-</mat-radio-button>
+                  <mat-radio-button value="0" (change) = "onChangeBloodType(0)" class="libre-italic">O+</mat-radio-button>&nbsp;&nbsp;&nbsp;
+                  <mat-radio-button value="1" (change) = "onChangeBloodType(1)" class="libre-italic">O-</mat-radio-button><br>
+                  <mat-radio-button value="2" (change) = "onChangeBloodType(2)" class="libre-italic">A+</mat-radio-button>&nbsp;&nbsp;&nbsp;
+                  <mat-radio-button value="3" (change) = "onChangeBloodType(3)" class="libre-italic">A-</mat-radio-button><br>
+                  <mat-radio-button value="4" (change) = "onChangeBloodType(4)" class="libre-italic">B+</mat-radio-button>&nbsp;&nbsp;&nbsp;
+                  <mat-radio-button value="5" (change) = "onChangeBloodType(5)" class="libre-italic">B-</mat-radio-button><br>
+                  <mat-radio-button value="6" (change) = "onChangeBloodType(6)" class="libre-italic">AB+</mat-radio-button>&nbsp;
+                  <mat-radio-button value="7" (change) = "onChangeBloodType(7)" class="libre-italic">AB-</mat-radio-button>
                </mat-radio-group><br><br>
-               <label class="form-label libre" for="gender">Blood type</label>
+               <label class="form-label libre-italic" for="gender">Blood type</label>
              </div> 
              <div class="form-outline mb-4 p-3 border rounded">
                <mat-radio-group name="gender" id="gender" required>
-                  <mat-radio-button value="MALE" (change) = "onChangeGender(0)">Male</mat-radio-button>&nbsp;&nbsp;
-                  <mat-radio-button value="FEMALE" (change) = "onChangeGender(1)">Female</mat-radio-button>
+                  <mat-radio-button value="MALE" (change) = "onChangeGender(0)" class="libre-italic">Male</mat-radio-button>&nbsp;&nbsp;
+                  <mat-radio-button value="FEMALE" (change) = "onChangeGender(1)" class="libre-italic">Female</mat-radio-button>
                </mat-radio-group><br><br>
-               <label class="form-label libre" for="gender">Gender</label>
-             </div>            
-             <button class="btn btn-success btn-lg btn-block libre my-3" type="submit">Register</button>
+               <label class="form-label libre-italic" for="gender">Gender</label>
+             </div>         
+             <button class="btn btn-light btn-lg btn-block libre-bold my-3 font-color-primary" type="submit">Register</button>
        </form>
     </div>
 </div>
-
+</mat-card>
+</div>
 
 

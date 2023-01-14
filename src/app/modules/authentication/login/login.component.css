@@ -37,17 +37,20 @@
 
 .register-text {
     font-size: large;
-    color: blue;
 }
 
 .login-wrapper mat-card-actions button {
     margin-bottom: 15px;
 } 
 
-.hide-password mat-icon {
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: #ffffff!important;
+}
+
+.font-color-primary {
     color: #c2185b;
 }
 
-::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
-    color: #c2185b!important;
+.font-color-secondary {
+    color: #ffffff;
 }
