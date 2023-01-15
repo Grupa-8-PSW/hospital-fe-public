@@ -15,6 +15,7 @@ import { SpecializationEvent } from '../model/specialization-event.model';
 import { DoctorEvent } from '../model/doctor-event.model';
 import { AppointmentEvent } from '../model/appointment-event.model';
 import { SessionEndEvent } from '../model/session-end-event.model';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-create-appointment-step',
@@ -48,7 +49,9 @@ export class CreateAppointmentStepComponent implements OnInit {
   selectedSlot: DateRange;
   aggregateId: number;
 
-  constructor(private _formBuilder: FormBuilder, private doctorService: DoctorService, private eventService: EventService, private appointmentService: AppointmentService, private examinationService: ExaminationService, private router: Router) {
+  constructor(private _formBuilder: FormBuilder, private doctorService: DoctorService, private eventService: EventService
+    , private appointmentService: AppointmentService, private examinationService: ExaminationService, private router: Router,
+    private snackBar: MatSnackBar) {
     this.doctorSpecializations = [];
     this.selectedSpecialization = -1;
     this.doctors = [];
@@ -91,11 +94,16 @@ export class CreateAppointmentStepComponent implements OnInit {
       dateRange: this.selectedSlot
     });
     this.examinationService.create(examination).subscribe((res) => {
-      alert("Appointment successfully scheduled!");
-      this.router.navigate(['/appointments']);
       this.eventService.sessionFinished(new SessionEndEvent(this.aggregateId)).subscribe(() => {});
+      this.snackBar.open("Appointment successfully scheduled!", "Ok", {
+        duration: 2000,
+        panelClass: ['snack-bar']
+      });
+      setTimeout(() => {
+        this.router.navigate(['/appointments']);
+      }, 2000);
+      
     });
-
   }
 
   fillSpecializationSelect(){
