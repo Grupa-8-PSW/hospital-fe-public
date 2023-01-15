@@ -12,11 +12,11 @@
       <mat-card-content>
         <mat-form-field class="w-100" appearance="fill">
           <mat-label class="libre-italic font-color-secondary">Username</mat-label>
-          <input required type="text" matInput placeholder="Username" name="username" [(ngModel)]="credentials.username" class="libre-italic">
+          <input required type="text" matInput name="username" [(ngModel)]="credentials.username" class="libre-italic">
         </mat-form-field>
         <mat-form-field class="w-100" appearance="fill">
           <mat-label class="libre-italic font-color-secondary">Password</mat-label>
-          <input required [type]="passwordHide ? 'password' : 'text'" matInput placeholder="Password" name="password" [(ngModel)]="credentials.password" class="libre-italic">
+          <input required [type]="passwordHide ? 'password' : 'text'" matInput name="password" [(ngModel)]="credentials.password" class="libre-italic">
           <button class="hide-password" mat-icon-button matSuffix (click)="passwordHide = !passwordHide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="passwordHide">
             <mat-icon>{{passwordHide ? 'visibility_off' : 'visibility'}}</mat-icon>
           </button>
