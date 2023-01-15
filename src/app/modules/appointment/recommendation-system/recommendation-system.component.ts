@@ -44,6 +44,7 @@ export class RecommendationSystemComponent implements OnInit {
   }
 
   submit(): void {
+    console.log(this.priority)
     const dateRange: DateRange = new DateRange({start: this.startDate, end: this.endDate});
     this.appointmentService.getRecommended(dateRange, this.doctorId, this.priority).subscribe((res) => {
       this.availableAppointments = res;
