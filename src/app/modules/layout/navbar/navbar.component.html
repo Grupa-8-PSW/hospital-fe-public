@@ -3,26 +3,26 @@
     <mat-nav-list>
       <a mat-list-item>
         <mat-icon mat-list-icon (click)="isExpanded = !isExpanded">menu</mat-icon>
-        <p matLine *ngIf="isExpanded" class="libre-italic">Menu</p>
+        <p matLine *ngIf="isExpanded" class="libre">Menu</p>
       </a>
       <div class="main-menu-items">
         <a mat-list-item [routerLink]="['/home']" role="button">
           <mat-icon mat-list-icon>home</mat-icon>
-          <p matLine *ngIf="isExpanded" class="libre-italic">Home</p>
+          <p matLine *ngIf="isExpanded" class="libre">Home</p>
         </a>
         <a *ngIf="isLogged" mat-list-item class="libre" [routerLink]="['/appointments']" id="appointments">
           <mat-icon mat-list-icon>calendar_month</mat-icon>
-          <p matLine *ngIf="isExpanded" class="libre-italic">My appointments</p>  
+          <p matLine *ngIf="isExpanded" class="libre">My appointments</p>  
         </a>
       </div>
       <div class="bottom-menu-items">
         <a *ngIf="!isLogged" mat-list-item class="libre" [routerLink]="['/auth/login']" id="appointments">
           <mat-icon mat-list-icon>login</mat-icon>
-          <p matLine *ngIf="isExpanded" class="libre-italic">Login</p>  
+          <p matLine *ngIf="isExpanded" class="libre">Login</p>  
         </a>
         <a *ngIf="isLogged" mat-list-item class="libre" (click)="logout()" id="appointments">
           <mat-icon mat-list-icon>logout</mat-icon>
-          <p matLine *ngIf="isExpanded" class="libre-italic">Logout</p>  
+          <p matLine *ngIf="isExpanded" class="libre">Logout</p>  
         </a>
       </div>
     </mat-nav-list>
