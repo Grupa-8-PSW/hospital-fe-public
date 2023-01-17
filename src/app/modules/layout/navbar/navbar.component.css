@@ -1,0 +1,48 @@
+@import url('../../../../assets/fonts/fonts.css');
+@import url('../../../../assets/colors/palette.css');
+
+.main-toolbar {
+  z-index: 2;
+}
+
+.main-toolbar {
+  border-radius: 10px;
+  width: 98%;
+  margin-left: 1%;
+  margin-top: 5px;
+  margin-bottom: 25px;
+} 
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.main-sidenav {
+  position: fixed;
+  height: 100%;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.main-toolbar-title {
+  color: #c2185b;
+}
+
+.bottom-menu-items {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.main-menu-items {
+  margin-top: 100px;
+}
+
+.font-color-secondary {
+  color: #ffffff;
+}
+
+.icon-secondary {
+  color: #ffffff;
+  transform: scale(2);
+}

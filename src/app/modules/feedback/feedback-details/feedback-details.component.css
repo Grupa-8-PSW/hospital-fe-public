@@ -1,0 +1,19 @@
+@import url('../../../../assets/fonts/fonts.css');
+@import url('../../../../assets/colors/palette.css');
+
+mat-card {
+    width: 75%;
+}
+
+.align-right {
+    margin-left: auto;
+}
+
+.font-color-primary {
+    color: #c2185b;
+}
+
+.icon-primary {
+    color: #c2185b;
+    transform: scale(2.5);
+}

@@ -1,0 +1,92 @@
+<div class="grid-container">
+  <mat-grid-list rows="4" cols="1" rowHeight="400px">
+    <mat-grid-tile *ngIf="!isLogged">
+      <mat-card class="dashboard-card primary">
+        <br>
+        <mat-card-header>
+          <mat-card-title class="libre-bold">
+            <mat-icon class="icon-secondary me-3">accessibility_new</mat-icon>
+            Welcome
+          </mat-card-title>
+        </mat-card-header>
+        <hr><br>
+        <mat-card-content class="dashboard-card-content">
+          <h1 class="libre-italic">Hope Hospital is a 206-bed regional medical center serving Novi Sad County. It is a major academic affiliate of Novi Sad School of Medicine and a member of WHO (World Health Association).
+
+            Since opening in 1967, Hope Hospital has evolved into a progressive medical center and teaching institution with an internal medicine residency.
+            
+            We represent all medical specialties and offer a wide range of medical, surgical, diagnostic and wellness programs. High-quality care, coupled with Hope Hospital’s convenient location, are reasons many patients choose to be treated here.</h1>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile rowspan="2" *ngIf="!isLogged">
+      <mat-card class="dashboard-card primary">
+        <br>
+        <mat-card-header>
+          <mat-card-title class="libre-bold">
+            <mat-icon class="icon-secondary me-3">comment</mat-icon>
+            Feedback
+          </mat-card-title>
+          <a [routerLink]="['/createFeedback']" *ngIf="userRole == 'Patient'" id="createFeedback" style="margin-left: auto;margin-top: -10px">
+            <button mat-raised-button class="secondary libre">Add Feedback</button>
+          </a>
+        </mat-card-header>
+        <hr><br>
+        <mat-card-content class="dashboard-card-content">
+          <div *ngFor="let feedback of feedbacks; let i = index" class="mb-4">
+            <div *ngIf="i%2==0; else rightAlign">
+              <app-feedback-details [feedback]="feedback" [number]="i" [alignment]="alignLeft"></app-feedback-details>
+            </div>
+            
+            <ng-template #rightAlign>
+              <app-feedback-details [feedback]="feedback" [number]="i" [alignment]="alignRight"></app-feedback-details>
+            </ng-template>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile class="carousel-container" *ngIf="isLogged">
+      <ngb-carousel class="w-100 primary">
+        <ng-template *ngFor="let bbn of bloodBankNews" ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img [src]="bbn.imgSrc">
+          </div>
+          <div class="carousel-caption">
+            <h3 class="libre-bold">{{bbn.subject}}</h3>
+            <p class="libre-italic">{{bbn.text}}}</p>
+          </div>
+        </ng-template>
+        <!--
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img src="https://firebasestorage.googleapis.com/v0/b/isapsw-6ef61.appspot.com/o/crveni-krst-jpg_660x330.jpg?alt=media&token=952372fe-4ce6-4482-9f1d-e466ec0b8dce" alt="Random first slide">
+          </div>
+          <div class="carousel-caption">
+            <h3>First slide label</h3>
+            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img src="https://firebasestorage.googleapis.com/v0/b/isapsw-6ef61.appspot.com/o/slika.png?alt=media&token=cc4a66f7-98fc-4641-ae08-a0ba96938581" alt="Random first slide">
+          </div>
+          <div class="carousel-caption">
+            <h3>First slide label</h3>
+            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img src="https://firebasestorage.googleapis.com/v0/b/isapsw-6ef61.appspot.com/o/h3.jpg?alt=media&token=482263cb-3590-405f-9c1e-e1fcd46b5229" alt="Random first slide">
+          </div>
+          <div class="carousel-caption">
+            <h3>First slide label</h3>
+            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          </div>
+        </ng-template>-->
+      </ngb-carousel>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

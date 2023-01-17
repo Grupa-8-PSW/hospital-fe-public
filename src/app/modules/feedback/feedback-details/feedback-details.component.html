@@ -1,0 +1,14 @@
+<mat-card class="secondary" [ngClass]="alignment === 'right' ? 'align-right' : ''">
+    <mat-card-header>
+        <mat-card-title class="libre-bold font-color-primary">
+            #{{number+1}}
+        </mat-card-title>
+        <div class="libre-italic libre-bold align-right font-color-primary">
+            Date: {{feedback.creationDate}}
+        </div>
+    </mat-card-header>
+    <mat-card-content class="dashboard-card-content libre-italic libre-bold p-4 font-color-primary">
+        <mat-icon class="icon-primary m-4">account_circle</mat-icon>
+        {{feedback.patientFullName}}: {{feedback.text}}
+    </mat-card-content>
+</mat-card>

@@ -1,0 +1,38 @@
+@import url('../../../../assets/fonts/fonts.css');
+@import url('../../../../assets/colors/palette.css');
+
+.grid-container {
+  margin: 20px;
+}
+
+.dashboard-card {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+}
+
+.more-button {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.dashboard-card-content {
+  text-align: center;
+}
+
+ngb-carousel {
+  padding: 10px;
+  border-radius: 10px;
+}
+
+ngb-carousel img {
+  width: 200px;
+  height: 200px;
+}
+
+.icon-secondary {
+  transform: scale(2);
+}

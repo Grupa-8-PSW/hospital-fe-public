@@ -2,3 +2,13 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+mat-dialog-container {
+    background-color: #c2185b !important;
+    color: white;
+}
+
+.snack-bar {
+    background: #c2185b;
+    color: white;
+}

@@ -1,0 +1,56 @@
+@import url('../../../../assets/fonts/fonts.css');
+@import url('../../../../assets/colors/palette.css');
+
+.login-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.login-btn {
+    width: 100%;
+}
+
+.login-wrapper mat-card-header {
+
+    text-align: center;
+    display: block;
+    font-weight: 700;
+    width: 100%;
+}
+
+.login-wrapper h1 {
+    margin-top: 5px;
+}
+
+.login-wrapper mat-icon {
+    transform: scale(1.5);
+}
+
+.error-text {
+    color: red;
+}
+
+.login-wrapper mat-card-actions {
+    text-align: center;
+}
+
+.register-text {
+    font-size: large;
+}
+
+.login-wrapper mat-card-actions button {
+    margin-bottom: 15px;
+} 
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: #ffffff!important;
+}
+
+.font-color-primary {
+    color: #c2185b;
+}
+
+.font-color-secondary {
+    color: #ffffff;
+}
